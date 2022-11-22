@@ -4,6 +4,8 @@
     const childPages = import.meta.glob("./*/+page.svelte");
     const allChildPages = import.meta.glob("./*/day/*/+page.svelte");
 
+    console.log("URL:")
+    console.log(url)
     console.log("Child pages:")
     console.log(childPages)
     console.log("All child pages:")
