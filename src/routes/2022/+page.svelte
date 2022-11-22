@@ -6,6 +6,11 @@
   const childPages = import.meta.glob("./day/*/+page.svelte");
 
   const pages = getPages(url, childPages);
+
+  console.log("2022 page output:")
+  console.log(url)
+  console.log(childPages)
+  console.log(pages)
 </script>
 
 <p>All attempted solutions for 2022.</p>
