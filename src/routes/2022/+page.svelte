@@ -1,11 +1,11 @@
 <script>
-    import { getPages } from "$lib/pages";
-    const { url } = import.meta;
-    const childPages = import.meta.glob("./day/*/+page.svelte");
+  import { getPages } from "$lib/pages";
+  import { page } from "$app/stores"
 
-    const pages = getPages(url, childPages);
+  const url = $page.url.pathname + "/";
+  const childPages = import.meta.glob("./day/*/+page.svelte");
 
-    console.log(url)
+  const pages = getPages(url, childPages);
 </script>
 
 <p>All attempted solutions for 2022.</p>

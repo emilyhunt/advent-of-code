@@ -1,25 +1,14 @@
 <script>
     import { getPages } from "$lib/pages";
     import { page } from "$app/stores"
-    //const url = import.meta.url;  // old method
+    
     const url = $page.url.pathname;
     const childPages = import.meta.glob("./*/+page.svelte");
     const allChildPages = import.meta.glob("./*/day/*/+page.svelte");
 
-    console.log("URL:")
-    console.log(url)
-    console.log("Child pages:")
-    console.log(childPages)
-    console.log("All child pages:")
-    console.log(allChildPages)
-
     const pages = getPages(url, childPages);
     const allPages = getPages(url, allChildPages);
 
-    console.log("Pages:")
-    console.log(pages)
-    console.log("All pages:")
-    console.log(allPages)
 </script>
 
 <p>Welcome to my attempts at solving <a href="https://adventofcode.com/">Advent of Code</a> puzzles using Javascript and <a href="https://svelte.dev/">Svelte</a>.</p>
