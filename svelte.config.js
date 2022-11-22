@@ -10,9 +10,9 @@ const config = {
 			assets: 'docs'
 		}),
 		/* Not convinced that I need the below? */
-		/*paths: {
-			base: dev ? '' : 'aoc.emilydoesastro.com',
-		},*/
+		// paths: {
+		// 	base: dev ? '' : 'aoc.emilydoesastro.com',
+		// },
 	}
 };
 
