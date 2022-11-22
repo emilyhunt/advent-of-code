@@ -1,34 +1,33 @@
 <script>
-    let count = 0;
+    import { getPages } from "$lib/pages";
+    const { url } = import.meta;
+    const childPages = import.meta.glob("./*/+page.svelte");
+    const allChildPages = import.meta.glob("./*/day/*/+page.svelte");
 
-    function handleClick() {
-        count += 1;
-    }
+    const pages = getPages(url, childPages);
+    const allPages = getPages(url, allChildPages);
 </script>
 
+<p>Welcome to my attempts at solving <a href="https://adventofcode.com/">Advent of Code</a> puzzles using Javascript and <a href="https://svelte.dev/">Svelte</a>.</p>
 
-<h1>Emily's Advent of Code site</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation.</p>
+<p>These puzzles run entirely in your web browser. Static code is hosted using GitHub Pages.</p>
 
-<br>
+<h2>Attempts by year</h2>
 
-<button on:click={handleClick}>
-	Interactivity test: Click me!
-</button>
+<ul>
+    {#each pages as page}
+      <li>
+        <a href={page}>[{page.slice(1)}]</a>
+      </li>
+    {/each}
+</ul>
 
-<p>You have pressed the button {count} {count === 1 ? 'time' : 'times'}.</p>
+<h2>All attempted puzzles</h2>
 
-<style>
-    h1 {
-        font-family: 'Source Code Pro', monospace;
-        font-size: 40pt;
-    }
-    p {
-       font-family: 'Source Code Pro', monospace; 
-       font-size: 15pt;
-    }
-    button {
-        font-family: 'Source Code Pro', monospace; 
-        font-size: 16pt;
-    }
-</style>
+<ul>
+    {#each allPages as page}
+        <li>
+        <a href={page}>[{page.slice(1, 5)} // {page.slice(6).replace("/", " ")}]</a>
+        </li>
+    {/each}
+</ul>
