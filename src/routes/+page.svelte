@@ -1,6 +1,6 @@
 <script>
     import { getPages } from "$lib/pages";
-    const { url } = import.meta;
+    const url = import.meta.url;
     const childPages = import.meta.glob("./*/+page.svelte");
     const allChildPages = import.meta.glob("./*/day/*/+page.svelte");
 
@@ -13,6 +13,11 @@
 
     const pages = getPages(url, childPages);
     const allPages = getPages(url, allChildPages);
+
+    console.log("Pages:")
+    console.log(pages)
+    console.log("All pages:")
+    console.log(allPages)
 </script>
 
 <p>Welcome to my attempts at solving <a href="https://adventofcode.com/">Advent of Code</a> puzzles using Javascript and <a href="https://svelte.dev/">Svelte</a>.</p>
