@@ -9,5 +9,5 @@
 <script>
     import { page } from '$app/stores';
     const repo_link = 'https://github.com/emilyhunt/aoc.emilydoesastro.com';
-    $: source_link = repo_link + '/tree/main/src/routes' + $page.url.pathname
+    $: source_link = repo_link + '/tree/main/src/routes' + $page.url.pathname + "/%2Bpage.svelte";
 </script>
