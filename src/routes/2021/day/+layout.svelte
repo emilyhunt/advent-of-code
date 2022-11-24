@@ -1,15 +1,36 @@
 <script>
     import { pageTitle, longRuntime } from '$lib/stores';
     import { page } from '$app/stores';
+
+    function getDayYearFromPath(basePath) {
+        return [
+            Number(basePath.slice(-2)),  // Day, as number
+            Number(basePath.slice(1, 5)),  // Year, as number
+            basePath.slice(0, 5)  // Year with a / in front
+        ];
+    };
+
+    function getNextPreviousDays(day) {
+        return [
+            String(day - 1).padStart(2, "0"),  // Previous day as string
+            String(day + 1).padStart(2, "0")   // Next day as string
+        ];
+    };
     
     const numberOfPages = Object.keys(import.meta.glob("./**/+page.svelte")).length;
 
+    let day = 2;
+    let year = 2021;
+    let yearPath = '/2021'; 
+    let previousDay = '01'; 
+    let nextDay = '03';
+
     // Various page formatting things
-    $: basePath = $page.url.pathname;
-    $: day = Number(basePath.slice(-2));
-    $: yearPath = basePath.slice(0, -2).replace("/day/", "");
-    $: previousDay = String(day - 1).padStart(2, "0");
-    $: nextDay = String(day + 1).padStart(2, "0");
+    $: {
+        [day, year, yearPath] = getDayYearFromPath($page.url.pathname);
+        [previousDay, nextDay] = getNextPreviousDays(day);
+    }
+
 </script>
 
 <h2>day {String(day).padStart(2, '0')}: {$pageTitle}</h2>

@@ -11,13 +11,13 @@ The site is made with the Javascript framework Svelte and built using Sveltekit.
 ### Priorities
 * ~~Make working initial template site~~
 * ~~Add auto-generated menus~~
-* Write data loading library functions (asynchronously?)
-* Add a way to run code on-demand with a button (asynchronously?)
-* Make a working demo or two for 2021 puzzles
+* ~~Write data loading library functions (asynchronously?)~~
+* ~~Add a way to run code on-demand with a button (asynchronously?)~~
+* ~~Make a working demo or two for 2021 puzzles~~
 
 ### Optional
 * Add timing information to code runs
-* Add a way to use custom inputs
+* ~~Add a way to use custom inputs~~
 * Automated retrieval of info from the AoC site (like challenge titles)
 * Basic visualisation support (integrate D3 into library stuff?)
 * Improve theme (just use the VS Code colours? I dunno)
