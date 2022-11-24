@@ -4,7 +4,7 @@
 
 This site is an attempt at learning and improving my skills working with web technologies. I'm solving [Advent of Code](https://adventofcode.com/) puzzles in web browsers!
 
-The site is made with the Javascript framework Svelte and built using Sveltekit. The site lives statically on GitHub pages. I might do some of the puzzles using Typescript, but I want to do more JS first before I make my life more complicated.
+The site is made with the web framework Svelte and built using Sveltekit. The site lives statically on GitHub pages. I might do some of the puzzles using Typescript, but I want to do more Javascript first before I make my life more complicated.
 
 ## To-do list
 
@@ -14,6 +14,7 @@ The site is made with the Javascript framework Svelte and built using Sveltekit.
 * ~~Write data loading library functions (asynchronously?)~~
 * ~~Add a way to run code on-demand with a button (asynchronously?)~~
 * ~~Make a working demo or two for 2021 puzzles~~
+* Update Runner component to be more flexible/split up, allowing for custom data visualisations. (MAYBE: split it up and let user decide what to do with subcomponents if needed?)
 
 ### Optional
 * Add timing information to code runs
@@ -23,6 +24,12 @@ The site is made with the Javascript framework Svelte and built using Sveltekit.
 * Improve theme (just use the VS Code colours? I dunno)
 * Chat about the project on Twitter
 * Update dev etc. README.md information to provide instructions for setting this repo up on other machines
+
+## Acknowledgements
+* ric2b's [2021 Advent of Code site](https://github.com/ric2b/advent-of-code/tree/master/2021) was used as inspiration
+* Glench's [sveltekit GitHub pages template](https://github.com/Glench/sveltekit-github-pages-template) was used to work out how to get this working with GitHub Pages
+
+
 
 
 ## Instructions for use from create-svelte
