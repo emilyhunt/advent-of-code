@@ -1,5 +1,7 @@
 # Emily's Advent of Code site
 
+[![pages-build-deployment](https://github.com/emilyhunt/aoc.emilydoesastro.com/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/emilyhunt/aoc.emilydoesastro.com/actions/workflows/pages/pages-build-deployment)
+
 [View the site at aoc.emilydoesastro.com](http://aoc.emilydoesastro.com/)
 
 This site is an attempt at learning and improving my skills working with web technologies. I'm solving [Advent of Code](https://adventofcode.com/) puzzles in web browsers! It's also a part of the [Backstage Advent of Code](https://github.com/emilyhunt/backstage-advent-of-code) group.
