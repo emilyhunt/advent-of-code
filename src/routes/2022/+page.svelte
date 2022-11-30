@@ -8,11 +8,7 @@
     const pages = getPages(url, childPages);
 </script>
 
-<p>Oh no! The sleigh keys have gone overboard. Can we save Christmas by recovering the sleigh keys with a submarine?!?</p>  
-
-<img src="https://i.giphy.com/media/dNhCpFWksNtbMLsFpX/giphy.webp" alt="A submarine!" height=200>
-
-<p>All attempted solutions for 2021 are below.</p>
+<p>All attempted solutions for 2022.</p>
 
 <ul>
     {#each pages as page}

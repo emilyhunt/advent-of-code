@@ -3,8 +3,8 @@
     import { page } from "$app/stores"
     
     const url = $page.url.pathname;
-    const childPages = import.meta.glob("./*/+page.svelte");
-    const allChildPages = import.meta.glob("./*/day/*/+page.svelte");
+    const childPages = import.meta.glob("./[!template]*/+page.svelte");
+    const allChildPages = import.meta.glob("./*/day/[!template]*/+page.svelte");
 
     const pages = getPages(url, childPages);
     const allPages = getPages(url, allChildPages);
@@ -14,6 +14,8 @@
 <p>Welcome to my attempts at solving <a href="https://adventofcode.com/">Advent of Code</a> puzzles using Javascript and <a href="https://svelte.dev/">Svelte</a>.</p>
 
 <p>These puzzles run entirely in your web browser. Static code is hosted using GitHub Pages.</p>
+
+<img src="https://i.giphy.com/media/RdzzVrtvfqnM4/giphy.webp" alt="Cats wearing Christmas Hats" width=300>
 
 <h2>Attempts by year</h2>
 

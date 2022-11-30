@@ -14,14 +14,15 @@ The site is made with the web framework Svelte and built using Sveltekit. The si
 * ~~Write data loading library functions (asynchronously?)~~
 * ~~Add a way to run code on-demand with a button (asynchronously?)~~
 * ~~Make a working demo or two for 2021 puzzles~~
-* Update Runner component to be more flexible/split up, allowing for custom data visualisations. (MAYBE: split it up and let user decide what to do with subcomponents if needed?)
+* ~~Update Runner component to be more flexible/split up, allowing for custom data visualisations. (MAYBE: split it up and let user decide what to do with subcomponents if needed?)~~
 
 ### Optional
-* Add timing information to code runs
+* ~~Add timing information to code runs~~
 * ~~Add a way to use custom inputs~~
 * Automated retrieval of info from the AoC site (like challenge titles)
 * Basic visualisation support (integrate D3 into library stuff?)
 * Improve theme (just use the VS Code colours? I dunno)
+* ~~Add gifs for a sweet web 1.0 aesthetic~~
 * Chat about the project on Twitter
 * Update dev etc. README.md information to provide instructions for setting this repo up on other machines
 
