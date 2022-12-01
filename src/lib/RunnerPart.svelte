@@ -5,6 +5,9 @@
     // Functions set by user that we run here
     export let part;
     export let preprocessor;
+    
+    // Metadata prop passed down from page
+    export let resultText = "Result";
 
     // Result and runtime in seconds
     export let result = "";
@@ -65,7 +68,7 @@
 <!-- Only display the runtime if we've ran at least once!-->
 {#if runtimeMilliseconds !== -1}
     <div class="result">
-        <p>Result = {result}</p>
+        <p>{resultText} = {result}</p>
         <p>(ran in {runtimeToDisplay})</p>
     </div>
     <!-- <br> -->

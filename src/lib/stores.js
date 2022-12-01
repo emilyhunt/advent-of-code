@@ -6,6 +6,8 @@ import { cyrb53 } from '$lib/hash'
 export let pageTitle = writable('undefined');
 export let longRuntime = writable(false);
 
+export let metadata = writable(Object());
+
 // Current default data
 export let currentDefaultData = writable("");
 export let currentExampleData = writable("");

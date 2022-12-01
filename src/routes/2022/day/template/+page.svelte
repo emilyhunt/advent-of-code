@@ -1,10 +1,20 @@
-<script>
-    import { pageTitle, longRuntime, currentDefaultData, currentExampleData } from '$lib/stores';
-    import Runner from "$lib/Runner.svelte"
+<script context="module">
+    export const metadata = {
+        title: "Puzzle Title",
+        day: "00",  // Day, as string
+        year: "2022",  // Year, as string
+        description: "Puzzle description",
+        longRuntime: false,  // Warning for if the page takes a while to run (> 1 second)
+        result1: "Result",  // Text to display part 1 result with
+        result2: "Result",  // Text to display part 2 result with
+        keywords: ["",],  // General keywords about the code used
+        visible: true,  // Whether or not to display in menus
+    };
+</script>
 
-    // Page settings
-    $pageTitle = "Puzzle Title";  // Add title for page here
-    $longRuntime = false;  // Warning for if the page takes a while to run (> 5 seconds)
+<script>
+    import { currentDefaultData, currentExampleData } from '$lib/stores';
+    import Runner from "$lib/Runner.svelte";
     
     /****************************** ADD CODE HERE!!!! *****************************/
     // Preprocessor applied to all data. E.g.: you may want an array without 
@@ -30,4 +40,4 @@
 
 </script>
 
-<Runner part1={part1} part2={part2} preprocessor={preprocessData}/>
+<Runner part1={part1} part2={part2} preprocessor={preprocessData} metadata={metadata}/>

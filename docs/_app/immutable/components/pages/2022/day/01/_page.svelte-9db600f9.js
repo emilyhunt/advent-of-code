@@ -1,4 +1,4 @@
-import{S as i,i as l,s as f,w as _,x as g,y as $,I as d,f as x,t as b,z as D,H as u,M as c}from"../../../../../chunks/index-c1247441.js";import{c as R,a as h,l as p,p as m}from"../../../../../chunks/stores-d78f3b97.js";import{R as v}from"../../../../../chunks/Runner-ea9f878e.js";const C=`18313
+import{S as u,i,s as c,w as m,x as f,y as l,J as p,f as d,t as g,z as $}from"../../../../../chunks/index-d20393c0.js";import{c as h,a as _}from"../../../../../chunks/stores-4bbfb31a.js";import{R as x}from"../../../../../chunks/Runner-cda9d69a.js";const y=`18313
 2404
 10479
 
@@ -2248,7 +2248,7 @@ import{S as i,i as l,s as f,w as _,x as g,y as $,I as d,f as x,t as b,z as D,H a
 15234
 14069
 10497
-7697`,w=`1000
+7697`,D=`1000
 2000
 3000
 
@@ -2261,7 +2261,7 @@ import{S as i,i as l,s as f,w as _,x as g,y as $,I as d,f as x,t as b,z as D,H a
 8000
 9000
 
-10000`;function y(r){let n,e;return n=new v({props:{part1:E,part2:S,preprocessor:o}}),{c(){_(n.$$.fragment)},l(t){g(n.$$.fragment,t)},m(t,a){$(n,t,a),e=!0},p:d,i(t){e||(x(n.$$.fragment,t),e=!0)},o(t){b(n.$$.fragment,t),e=!1},d(t){D(n,t)}}}function o(r){return r=r.split(`
+10000`;function b(r){let n,e;return n=new x({props:{part1:w,part2:C,preprocessor:o,metadata:v}}),{c(){m(n.$$.fragment)},l(t){f(n.$$.fragment,t)},m(t,a){l(n,t,a),e=!0},p,i(t){e||(d(n.$$.fragment,t),e=!0)},o(t){g(n.$$.fragment,t),e=!1},d(t){$(n,t)}}}const v={title:"Calorie Counting",day:"01",year:"2022",description:"Let's count how many calories of food the Elves have!",longRuntime:!1,result1:"Highest calorie count",result2:"Sum of three highest",keywords:["arrays","summing","sorting","for..of"],visible:!0};function o(r){return r=r.split(`
 
 `).map(n=>n.split(`
-`).map(e=>Number(e))),r}function E(r){let n=0,e;for(const t of r)e=t.reduce((a,s)=>a+s,0),e>n&&(n=e);return n}function S(r){let n=[];for(const e of r)n.push(e.reduce((t,a)=>t+a,0));return n.sort(function(e,t){return t-e}),n[0]+n[1]+n[2]}function T(r,n,e){let t,a;return u(r,p,s=>e(0,t=s)),u(r,m,s=>e(1,a=s)),c(m,a="Calorie Counting (so the Elves don't starve)",a),c(p,t=!1,t),R.set(o(C)),h.set(o(w)),[]}class H extends i{constructor(n){super(),l(this,n,T,y,f,{})}}export{H as default};
+`).map(e=>Number(e))),r}function w(r){let n=0,e;for(const t of r)e=t.reduce((a,s)=>a+s,0),e>n&&(n=e);return n}function C(r){let n=[];for(const e of r)n.push(e.reduce((t,a)=>t+a,0));return n.sort(function(e,t){return t-e}),n[0]+n[1]+n[2]}function R(r){return h.set(o(y)),_.set(o(D)),[]}class k extends u{constructor(n){super(),i(this,n,R,b,c,{})}}export{k as default,v as metadata};

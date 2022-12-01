@@ -1,10 +1,20 @@
-<script>
-    import { pageTitle, longRuntime, currentDefaultData, currentExampleData } from '$lib/stores';
-    import Runner from "$lib/Runner.svelte"
+<script context="module">
+    export const metadata = {
+        title: "Calorie Counting",
+        day: "01",  // Day, as string
+        year: "2022",  // Year, as string
+        description: "Let's count how many calories of food the Elves have!",
+        longRuntime: false,  // Warning for if the page takes a while to run (> 1 second)
+        result1: "Highest calorie count",  // Text to display part 1 result with
+        result2: "Sum of three highest",  // Text to display part 2 result with
+        keywords: ["arrays", "summing", "sorting", "for..of"],
+        visible: true,  // Whether or not to display in menus
+    };
+</script>
 
-    // Page settings
-    $pageTitle = "Calorie Counting (so the Elves don't starve)";  // Add title for page here
-    $longRuntime = false;  // Warning for if the page takes a while to run (> 5 seconds)
+<script>
+    import { currentDefaultData, currentExampleData } from '$lib/stores';
+    import Runner from "$lib/Runner.svelte"
     
     /****************************** ADD CODE HERE!!!! *****************************/
     // Preprocessor applied to all data.
@@ -65,4 +75,4 @@
 
 </script>
 
-<Runner part1={part1} part2={part2} preprocessor={preprocessData}/>
+<Runner part1={part1} part2={part2} preprocessor={preprocessData} metadata={metadata}/>

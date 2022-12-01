@@ -1,4 +1,4 @@
-import{S as l,i as m,s as f,w as g,x as _,y as $,I as S,f as x,t as R,z as b,H as u,M as i}from"../../../../../chunks/index-c1247441.js";import{c as h,l as p,p as a}from"../../../../../chunks/stores-d78f3b97.js";import{R as w}from"../../../../../chunks/Runner-ea9f878e.js";const D=`141
+import{S as c,i as m,s as f,w as g,x as _,y as h,J as $,f as w,t as R,z as S,H as u,M as i}from"../../../../../chunks/index-d20393c0.js";import{c as b,l as a,p as l}from"../../../../../chunks/stores-4bbfb31a.js";import{R as y}from"../../../../../chunks/Runner-cda9d69a.js";const x=`141
 140
 160
 161
@@ -1997,5 +1997,5 @@ import{S as l,i as m,s as f,w as g,x as _,y as $,I as S,f as x,t as R,z as b,H a
 9084
 9089
 9102
-9105`;function v(n){let e,t;return e=new w({props:{part1:y,part2:T,preprocessor:c}}),{c(){g(e.$$.fragment)},l(r){_(e.$$.fragment,r)},m(r,o){$(e,r,o),t=!0},p:S,i(r){t||(x(e.$$.fragment,r),t=!0)},o(r){R(e.$$.fragment,r),t=!1},d(r){b(e,r)}}}function c(n){return n=n.split(`
-`).map(e=>Number(e)),n}function y(n){let e=0;for(let t=1;t<n.length;t++)n[t]>n[t-1]&&(e+=1);return e}function T(n){let e=0,t=0,r=n[0]+n[1]+n[2];for(let o=3;o<n.length;o++)t=n[o]+n[o-1]+n[o-2],t>r&&(e+=1),r=t;return e}function q(n,e,t){let r,o;return u(n,p,s=>t(0,r=s)),u(n,a,s=>t(1,o=s)),i(a,o="Sonar Sweep",o),i(p,r=!1,r),h.set(c(D)),[]}class I extends l{constructor(e){super(),m(this,e,q,v,f,{})}}export{I as default};
+9105`;function v(n){let e,t;return e=new y({props:{part1:D,part2:H,preprocessor:p}}),{c(){g(e.$$.fragment)},l(r){_(e.$$.fragment,r)},m(r,o){h(e,r,o),t=!0},p:$,i(r){t||(w(e.$$.fragment,r),t=!0)},o(r){R(e.$$.fragment,r),t=!1},d(r){S(e,r)}}}const C={title:"Sonar Sweep",day:"01",year:"2021",description:"How much does the terrain change below the ship?",longRuntime:!1,result1:"Result",result2:"Result",keywords:[""],visible:!0};function p(n){return n=n.split(`
+`).map(e=>Number(e)),n}function D(n){let e=0;for(let t=1;t<n.length;t++)n[t]>n[t-1]&&(e+=1);return e}function H(n){let e=0,t=0,r=n[0]+n[1]+n[2];for(let o=3;o<n.length;o++)t=n[o]+n[o-1]+n[o-2],t>r&&(e+=1),r=t;return e}function T(n,e,t){let r,o;return u(n,a,s=>t(0,r=s)),u(n,l,s=>t(1,o=s)),i(l,o="Sonar Sweep",o),i(a,r=!1,r),b.set(p(x)),[]}class J extends c{constructor(e){super(),m(this,e,T,v,f,{})}}export{J as default,C as metadata};
