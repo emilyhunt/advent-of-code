@@ -1,66 +1,87 @@
 <script>
-    import { currentDefaultData, currentUserData, currentUserInput, runOnUserData, 
-        userDataChanges, userDataPreprocessed } from "$lib/stores";
+    import { currentDefaultData, currentExampleData, currentUserData, currentUserInput, runOnUserData, 
+        userDataHasChanged, hashedUserInput, hashedPreviousUserInput } from "$lib/stores";
 
     // Functions set by user that we run here
     export let part;
     export let preprocessor;
 
-    // Result and runtime in seconds, can optionally be bound to
+    // Result and runtime in seconds
     export let result = "";
-    export let runtimeSeconds = "-1";
+    export let runtimeMilliseconds = -1;
+    let runtimeSeconds = -1;
+    let runtimeToDisplay = "";
+    // $: runtimeSeconds = runtimeMilliseconds / 1000;
+    $: runtimeToDisplay = runtimeMilliseconds >= 1000 
+        ? `${(runtimeMilliseconds / 1000).toFixed(3)} s` 
+        : (runtimeMilliseconds === 0 ? "less than 1 ms" : `${runtimeMilliseconds} ms`);
 
     
     /*
     Handles data logic by looking at stores and seeing which data to use, if it needs preprocessing, etc
     */
-    function getData () {
-        // See if we need to run on user data
-        if ($runOnUserData) {
-            
-            // See if we need to preprocess the data first
-            if ($userDataChanges !== $userDataPreprocessed) {
-                currentUserData.set(preprocessor($currentUserInput));
-                userDataPreprocessed.set($userDataChanges);
-            }
-            return $currentUserData;
-
-        // Otherwise, use the default data
-        } else {
-            return $currentDefaultData;
+    function getUserData () {            
+        // See if we need to preprocess the data first
+        if ($userDataHasChanged === true) {
+            currentUserData.set(preprocessor($currentUserInput));
+            hashedPreviousUserInput.set($hashedUserInput);
         }
+
+        return $currentUserData;
+    }
+
+    function onExampleData () {
+        defaultTask($currentExampleData);
+    }
+
+    function onDefaultData () {
+        defaultTask($currentDefaultData);
+    }
+
+    function onUserData () {
+        defaultTask(getUserData());
     }
 
     /*
     Main function in this component; runs function part
     */
-    function defaultTask () {
-        let currentData = getData();
-
+    function defaultTask (currentData) {
         const startTime = Date.now();
         result = part(currentData);
-        runtimeSeconds = ((Date.now() - startTime) / 1000).toFixed(3);
-    };
+        runtimeMilliseconds = Date.now() - startTime;
+    }
 
 </script>
 
-
-<button on:click={defaultTask}>
-    Run {$runOnUserData ? "(on user data)" : ""}
-</button>
+<div class="row">
+    <button on:click={onExampleData} class="inline-button"> Example </button>
+    <button on:click={onDefaultData} class="inline-button"> My data </button>
+    {#if $runOnUserData === true}
+        <button on:click={onUserData} class="inline-button"> Custom data </button>
+    {/if}
+</div>
 
 
 <!-- Only display the runtime if we've ran at least once!-->
-{#if runtimeSeconds !== "-1"}
-    <p class="result">Result = {result}</p>
-    <p class="result">(ran in {runtimeSeconds} s)</p>
+{#if runtimeMilliseconds !== -1}
+    <div class="result">
+        <p>Result = {result}</p>
+        <p>(ran in {runtimeToDisplay})</p>
+    </div>
     <!-- <br> -->
 {/if}
 
 <style>
+    .inline-button{
+        width: 160px;
+        /* margin: 0 20px; */
+        display:inline-block;
+    }
+
     .result {
         color: #5bbdda;
     }
+
 </style>
 
 

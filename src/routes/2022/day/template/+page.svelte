@@ -1,5 +1,5 @@
 <script>
-    import { pageTitle, longRuntime, currentDefaultData } from '$lib/stores';
+    import { pageTitle, longRuntime, currentDefaultData, currentExampleData } from '$lib/stores';
     import Runner from "$lib/Runner.svelte"
 
     // Page settings
@@ -23,8 +23,10 @@
     /******************************                   *****************************/
 
     // Fetch data
-    import data from "./data.txt?raw"
+    import data from "./data.txt?raw";
+    import exampleData from "./exampleData.txt?raw";
     currentDefaultData.set(preprocessData(data));
+    currentExampleData.set(preprocessData(exampleData));
 
 </script>
 
