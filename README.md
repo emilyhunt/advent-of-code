@@ -21,8 +21,9 @@ The site is made with the web framework Svelte and built using Sveltekit. The si
 ### Optional
 * ~~Add timing information to code runs~~
 * ~~Add a way to use custom inputs~~
-* Automated retrieval of info from the AoC site (like challenge titles)
-* Basic visualisation support (integrate D3 into library stuff?)
+* Change page metadata to be stored in a .json file or within page scripts themselves as exportable module parameters
+* Add keywords for each page and a way to sort pages by keywords (e.g.: `lists`, `sorting`, etc)
+* Basic visualisation support (integrate e.g. chartjs into library stuff?)
 * Improve theme (just use the VS Code colours? I dunno)
 * ~~Add gifs for a sweet web 1.0 aesthetic~~
 * Chat about the project on Twitter
