@@ -26,18 +26,15 @@
     let yearPath = '/2021'; 
     let previousDay = '01'; 
     let nextDay = '03';
-    let metadataKey = "202101";
 
     // Various page formatting things
     $: {
         if ($page.url.pathname.includes("template") !== true) {
             [day, year, yearPath] = getDayYearFromPath($page.url.pathname);
             [previousDay, nextDay] = getNextPreviousDays(day);
-            metadataKey = year + day;
         } else {
             day = "01";
             year = "2021";
-            metadataKey = year + day;
         }
     }
 
@@ -51,13 +48,13 @@
 
 
 <!-- Content goes here -->
-<h2>day {$metadata[metadataKey].day}: {$metadata[metadataKey].title}</h2>
+<h2>day {$metadata[year][day].day}: {$metadata[year][day].title}</h2>
 
-<p>{$metadata[metadataKey].description}</p>
+<p>{$metadata[year][day].description}</p>
 
-<p class="keywords">Keywords: {$metadata[metadataKey].keywords.sort()}</p>
+<p class="keywords">Keywords: {$metadata[year][day].keywords.sort()}</p>
 
-{#if $metadata[metadataKey].longRuntime}
+{#if $metadata[year][day].longRuntime}
     <p style="color:red;">WARNING! This solution can take a while to run.</p>
 {/if}
 
@@ -81,6 +78,8 @@
     <p>Failed to fetch page metadata! Error: {error.message}</p>
 {/await}
 
+
+<!-- Style, obvs -->
 <style>
     .keywords {
         color:#7e7e7e;

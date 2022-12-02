@@ -9,7 +9,7 @@
 <script>
     import { page } from '$app/stores';
     // import { generateMetadata } from '$lib/pages';
-    const repo_link = 'https://github.com/emilyhunt/aoc.emilydoesastro.com';
+    const repo_link = 'https://github.com/emilyhunt/advent-of-code';
     $: source_link = repo_link + '/tree/main/src/routes' + $page.url.pathname + "/%2Bpage.svelte";
 
     // Whenever the main layout is called, we ensure that the metadata object gets generated

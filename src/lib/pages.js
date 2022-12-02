@@ -46,7 +46,7 @@ export async function generateMetadata () {
     //const yearPageLinks = getPages("", yearPages);
     const allPuzzleLinks = getPages("", allPuzzles);
 
-    console.log(allPuzzleLinks)
+    // console.log(allPuzzleLinks)
 
     // console.log("yp", yearPages);
     // console.log("ap", allPuzzles);
@@ -61,12 +61,16 @@ export async function generateMetadata () {
         miniMetadata = await loadPageMetadata(puzzleLink.slice(3, 5), puzzleLink.slice(-2));
         //{ metadata } = await import(puzzleLink);
         // console.log(miniMetadata);
-        metadataToWrite[miniMetadata.year + miniMetadata.day] = miniMetadata;
+        if (!(miniMetadata.year in metadataToWrite)) {
+            metadataToWrite[miniMetadata.year] = {};
+        }
+
+        metadataToWrite[miniMetadata.year][miniMetadata.day] = miniMetadata;
     }
 
     metadataToWrite["generated"] = true;
 
-    console.log(metadataToWrite);
+    // console.log(metadataToWrite);
 
     // console.log(metadata);
     //metadata.set(metadataToWrite);
