@@ -21,8 +21,8 @@ The site is made with the web framework Svelte and built using Sveltekit. The si
 ### Optional
 * ~~Add timing information to code runs~~
 * ~~Add a way to use custom inputs~~
-* Change page metadata to be stored in a .json file or within page scripts themselves as exportable module parameters
-* Add keywords for each page and a way to sort pages by keywords (e.g.: `lists`, `sorting`, etc)
+* ~~Change page metadata to be stored in a .json file or within page scripts themselves as exportable module parameters~~
+* Add ~~keywords for each page~~ and a way to sort pages by keywords (e.g.: `lists`, `sorting`, etc)
 * Basic visualisation support (integrate e.g. chartjs into library stuff?)
 * Improve theme (just use the VS Code colours? I dunno)
 * ~~Add gifs for a sweet web 1.0 aesthetic~~

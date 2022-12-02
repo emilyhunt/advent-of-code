@@ -40,27 +40,21 @@ export async function loadPageMetadata(year, day) {
  */
 export async function generateMetadata () {
     
-    //const yearPages = import.meta.glob("../routes/20*/+page.svelte");
     const allPuzzles = import.meta.glob("../routes/20*/day/[!template]*/+page.svelte");
-
-    //const yearPageLinks = getPages("", yearPages);
     const allPuzzleLinks = getPages("", allPuzzles);
 
-    // console.log(allPuzzleLinks)
-
-    // console.log("yp", yearPages);
-    // console.log("ap", allPuzzles);
-    // console.log("ypl", yearPageLinks);
-    // console.log("apl", allPuzzleLinks);
-
-    //let metadata;
     let metadataToWrite = {};
     let miniMetadata;
 
     for (const puzzleLink of allPuzzleLinks) {
+        // Get metadata file
         miniMetadata = await loadPageMetadata(puzzleLink.slice(3, 5), puzzleLink.slice(-2));
-        //{ metadata } = await import(puzzleLink);
-        // console.log(miniMetadata);
+
+        // Add more information
+        miniMetadata["href"] = `/${miniMetadata.year}/day/${miniMetadata.day}`
+
+        // Save to the main metadata object
+
         if (!(miniMetadata.year in metadataToWrite)) {
             metadataToWrite[miniMetadata.year] = {};
         }
@@ -68,12 +62,6 @@ export async function generateMetadata () {
         metadataToWrite[miniMetadata.year][miniMetadata.day] = miniMetadata;
     }
 
-    metadataToWrite["generated"] = true;
-
-    // console.log(metadataToWrite);
-
-    // console.log(metadata);
-    //metadata.set(metadataToWrite);
     return metadataToWrite;
 
 }
