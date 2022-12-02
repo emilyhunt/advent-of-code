@@ -1,5 +1,5 @@
 <script context="module">
-    export const metadata = {
+    export const myMetadata = {
         title: "Puzzle Title",
         day: "00",  // Day, as string
         year: "2022",  // Year, as string
@@ -40,4 +40,4 @@
 
 </script>
 
-<Runner part1={part1} part2={part2} preprocessor={preprocessData} metadata={metadata}/>
+<Runner part1={part1} part2={part2} preprocessor={preprocessData} metadata={myMetadata}/>

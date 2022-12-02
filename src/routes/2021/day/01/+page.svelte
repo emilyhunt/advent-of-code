@@ -1,6 +1,6 @@
 <script context="module">
     // Edit these values!
-    export const metadata = {
+    export const myMetadata = {
         title: "Sonar Sweep",
         day: "01",  // Day, as string
         year: "2021",  // Year, as string
@@ -65,4 +65,4 @@
 
 </script>
 
-<Runner part1={part1} part2={part2} preprocessor={preprocessData}/>
+<Runner part1={part1} part2={part2} preprocessor={preprocessData} metadata={myMetadata}/>

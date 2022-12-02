@@ -1,5 +1,5 @@
 <script context="module">
-    export const metadata = {
+    export const myMetadata = {
         title: "Rock Paper Scissors",
         day: "02",  // Day, as string
         year: "2022",  // Year, as string
@@ -95,11 +95,11 @@
             // It's a loss
             } else {
                 // score += 0;  // implied
-                if (theirMove === "r") {
+                if (theirMove === "r") {  // 0
                     idMyMove = 2;
-                } else if (theirMove === "p") {
+                } else if (theirMove === "p") {  // 1
                     idMyMove = 0;
-                } else { // theirMove === "s"
+                } else { // theirMove === "s"  // 2
                     idMyMove = 1;
                 }
             }
@@ -117,9 +117,6 @@
     import exampleData from "./exampleData.txt?raw";
     currentDefaultData.set(preprocessData(data));
     currentExampleData.set(preprocessData(exampleData));
-
-    console.log("example data", $currentDefaultData.slice(-3));
-
 </script>
 
-<Runner part1={part1} part2={part2} preprocessor={preprocessData} metadata={metadata}/>
+<Runner part1={part1} part2={part2} preprocessor={preprocessData} metadata={myMetadata}/>

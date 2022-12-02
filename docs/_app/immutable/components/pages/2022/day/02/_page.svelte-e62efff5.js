@@ -1,4 +1,4 @@
-import{S as s,i as o,s as a,w as i,x as l,y as p,J as c,f as u,t as f,z as m,H as d}from"../../../../../chunks/index-d20393c0.js";import{c as t,a as w}from"../../../../../chunks/stores-4bbfb31a.js";import{R as h}from"../../../../../chunks/Runner-cda9d69a.js";const v=`B Z
+import{S as r,i as s,s as o,w as a,x as i,y as l,I as p,f as c,t as f,z as u}from"../../../../../chunks/index-83d3324c.js";import{c as m,a as d}from"../../../../../chunks/stores-5b12132a.js";import{R as w}from"../../../../../chunks/Runner-f713d2e9.js";const h=`B Z
 A X
 C X
 C X
@@ -2497,8 +2497,8 @@ C X
 C X
 C X
 C X
-C X`,$=`A Y
+C X`,v=`A Y
 B X
-C Z`;function g(X){let C,Y;return C=new h({props:{part1:M,part2:_,preprocessor:e,metadata:y}}),{c(){i(C.$$.fragment)},l(n){l(C.$$.fragment,n)},m(n,Z){p(C,n,Z),Y=!0},p:c,i(n){Y||(u(C.$$.fragment,n),Y=!0)},o(n){f(C.$$.fragment,n),Y=!1},d(n){m(C,n)}}}const y={title:"Rock Paper Scissors",day:"02",year:"2022",description:`For some reason, we need to win the Rock Paper Scissors tournament. Suspicious...
-I wasn't especially happy with how I solved this one - I was too tired!`,longRuntime:!1,result1:"Score in tournament",result2:"ACTUAL score now we know what the input means",keywords:["for..of","logic","string comparison"],visible:!0};function e(X){return X=X.replaceAll("A","r").replaceAll("B","p").replaceAll("C","s").replaceAll("X","r").replaceAll("Y","p").replaceAll("Z","s").split(`
-`).map(C=>C.split(" ")),X}function M(X){let C=0,Y=["r","p","s"],n;for(const[Z,A]of X)n=Y.findIndex(B=>B===A),C+=n+1,Z===A?C+=3:(A==="r"&&Z==="s"||A==="p"&&Z==="r"||A==="s"&&Z==="p")&&(C+=6);return C}function _(X){let C=0,Y=["r","p","s"],n,Z;for(const[A,B]of X)Z=Y.findIndex(r=>r===A),B==="p"?(C+=3,n=Z):B==="s"?(C+=6,A==="r"?n=1:A==="p"?n=2:n=0):A==="r"?n=2:A==="p"?n=0:n=1,C+=n+1;return C}function x(X,C,Y){let n;return d(X,t,Z=>Y(0,n=Z)),t.set(e(v)),w.set(e($)),console.log("example data",n.slice(-3)),[]}class b extends s{constructor(C){super(),o(this,C,x,g,a,{})}}export{b as default,y as metadata};
+C Z`;function y(Z){let n,Y;return n=new w({props:{part1:$,part2:g,preprocessor:e,metadata:M}}),{c(){a(n.$$.fragment)},l(C){i(n.$$.fragment,C)},m(C,A){l(n,C,A),Y=!0},p,i(C){Y||(c(n.$$.fragment,C),Y=!0)},o(C){f(n.$$.fragment,C),Y=!1},d(C){u(n,C)}}}const M={title:"Rock Paper Scissors",day:"02",year:"2022",description:`For some reason, we need to win the Rock Paper Scissors tournament. Suspicious...
+I wasn't especially happy with how I solved this one - I was too tired!`,longRuntime:!1,result1:"Score in tournament",result2:"ACTUAL score now we know what the input means",keywords:["for..of","logic","string comparison"],visible:!0};function e(Z){return Z=Z.replaceAll("A","r").replaceAll("B","p").replaceAll("C","s").replaceAll("X","r").replaceAll("Y","p").replaceAll("Z","s").split(`
+`).map(n=>n.split(" ")),Z}function $(Z){let n=0,Y=["r","p","s"],C;for(const[A,X]of Z)C=Y.findIndex(B=>B===X),n+=C+1,A===X?n+=3:(X==="r"&&A==="s"||X==="p"&&A==="r"||X==="s"&&A==="p")&&(n+=6);return n}function g(Z){let n=0,Y=["r","p","s"],C,A;for(const[X,B]of Z)A=Y.findIndex(t=>t===X),B==="p"?(n+=3,C=A):B==="s"?(n+=6,X==="r"?C=1:X==="p"?C=2:C=0):X==="r"?C=2:X==="p"?C=0:C=1,n+=C+1;return n}function _(Z){return m.set(e(h)),d.set(e(v)),[]}class S extends r{constructor(n){super(),s(this,n,_,y,o,{})}}export{S as default,M as myMetadata};

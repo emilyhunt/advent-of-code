@@ -1,4 +1,4 @@
-import { metadata } from "./stores";
+//import { metadata } from "./stores";
 
 /**
  * Returns relative paths to child modules.
@@ -30,9 +30,9 @@ import { metadata } from "./stores";
 }
 
 export async function loadPageMetadata(year, day) {
-    let { metadata } = await import(`./../routes/20${year}/day/${day}/+page.svelte`);
+    let { myMetadata } = await import(`./../routes/20${year}/day/${day}/+page.svelte`);
     //let { metadata } = await import(`../routes/2021/01/+page.svelte`);
-    return metadata;
+    return myMetadata;
 };
 
 /**
@@ -46,11 +46,14 @@ export async function generateMetadata () {
     //const yearPageLinks = getPages("", yearPages);
     const allPuzzleLinks = getPages("", allPuzzles);
 
+    console.log(allPuzzleLinks)
+
     // console.log("yp", yearPages);
     // console.log("ap", allPuzzles);
     // console.log("ypl", yearPageLinks);
     // console.log("apl", allPuzzleLinks);
 
+    //let metadata;
     let metadataToWrite = {};
     let miniMetadata;
 
@@ -61,7 +64,20 @@ export async function generateMetadata () {
         metadataToWrite[miniMetadata.year + miniMetadata.day] = miniMetadata;
     }
 
+    metadataToWrite["generated"] = true;
+
+    console.log(metadataToWrite);
+
     // console.log(metadata);
-    metadata.set(metadataToWrite);
+    //metadata.set(metadataToWrite);
+    return metadataToWrite;
 
 }
+
+// export function getMetadata () {
+//     console.log("generated", metadata);
+//     // if (!($metadata).generated) {
+//     //     generateMetadata();
+//     // }
+//     return metadata
+// }

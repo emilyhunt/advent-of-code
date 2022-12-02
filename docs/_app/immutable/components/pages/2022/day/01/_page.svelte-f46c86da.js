@@ -1,4 +1,4 @@
-import{S as u,i,s as c,w as m,x as f,y as l,J as p,f as d,t as g,z as $}from"../../../../../chunks/index-d20393c0.js";import{c as h,a as _}from"../../../../../chunks/stores-4bbfb31a.js";import{R as x}from"../../../../../chunks/Runner-cda9d69a.js";const y=`18313
+import{S as u,i,s as c,w as m,x as f,y as l,I as p,f as d,t as g,z as $}from"../../../../../chunks/index-83d3324c.js";import{c as h,a as _}from"../../../../../chunks/stores-5b12132a.js";import{R as y}from"../../../../../chunks/Runner-f713d2e9.js";const x=`18313
 2404
 10479
 
@@ -2261,7 +2261,7 @@ import{S as u,i,s as c,w as m,x as f,y as l,J as p,f as d,t as g,z as $}from"../
 8000
 9000
 
-10000`;function b(r){let n,e;return n=new x({props:{part1:w,part2:C,preprocessor:o,metadata:v}}),{c(){m(n.$$.fragment)},l(t){f(n.$$.fragment,t)},m(t,a){l(n,t,a),e=!0},p,i(t){e||(d(n.$$.fragment,t),e=!0)},o(t){g(n.$$.fragment,t),e=!1},d(t){$(n,t)}}}const v={title:"Calorie Counting",day:"01",year:"2022",description:"Let's count how many calories of food the Elves have!",longRuntime:!1,result1:"Highest calorie count",result2:"Sum of three highest",keywords:["arrays","summing","sorting","for..of"],visible:!0};function o(r){return r=r.split(`
+10000`;function b(r){let n,e;return n=new y({props:{part1:w,part2:C,preprocessor:o,metadata:v}}),{c(){m(n.$$.fragment)},l(t){f(n.$$.fragment,t)},m(t,a){l(n,t,a),e=!0},p,i(t){e||(d(n.$$.fragment,t),e=!0)},o(t){g(n.$$.fragment,t),e=!1},d(t){$(n,t)}}}const v={title:"Calorie Counting",day:"01",year:"2022",description:"Let's count how many calories of food the Elves have!",longRuntime:!1,result1:"Highest calorie count",result2:"Sum of three highest",keywords:["arrays","summing","sorting","for..of"],visible:!0};function o(r){return r=r.split(`
 
 `).map(n=>n.split(`
-`).map(e=>Number(e))),r}function w(r){let n=0,e;for(const t of r)e=t.reduce((a,s)=>a+s,0),e>n&&(n=e);return n}function C(r){let n=[];for(const e of r)n.push(e.reduce((t,a)=>t+a,0));return n.sort(function(e,t){return t-e}),n[0]+n[1]+n[2]}function R(r){return h.set(o(y)),_.set(o(D)),[]}class k extends u{constructor(n){super(),i(this,n,R,b,c,{})}}export{k as default,v as metadata};
+`).map(e=>Number(e))),r}function w(r){let n=0,e;for(const t of r)e=t.reduce((a,s)=>a+s,0),e>n&&(n=e);return n}function C(r){let n=[];for(const e of r)n.push(e.reduce((t,a)=>t+a,0));return n.sort(function(e,t){return t-e}),n[0]+n[1]+n[2]}function R(r){return h.set(o(x)),_.set(o(D)),[]}class k extends u{constructor(n){super(),i(this,n,R,b,c,{})}}export{k as default,v as myMetadata};

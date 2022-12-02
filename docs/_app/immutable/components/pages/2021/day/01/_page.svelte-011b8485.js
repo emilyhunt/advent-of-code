@@ -1,4 +1,4 @@
-import{S as c,i as m,s as f,w as g,x as _,y as h,J as $,f as w,t as R,z as S,H as u,M as i}from"../../../../../chunks/index-d20393c0.js";import{c as b,l as a,p as l}from"../../../../../chunks/stores-4bbfb31a.js";import{R as y}from"../../../../../chunks/Runner-cda9d69a.js";const x=`141
+import{S as c,i as m,s as f,w as g,x as _,y as h,I as $,f as w,t as R,z as S,H as a,O as u}from"../../../../../chunks/index-83d3324c.js";import{c as y,l as i,p as l}from"../../../../../chunks/stores-5b12132a.js";import{R as b}from"../../../../../chunks/Runner-f713d2e9.js";const x=`141
 140
 160
 161
@@ -1997,5 +1997,5 @@ import{S as c,i as m,s as f,w as g,x as _,y as h,J as $,f as w,t as R,z as S,H a
 9084
 9089
 9102
-9105`;function v(n){let e,t;return e=new y({props:{part1:D,part2:H,preprocessor:p}}),{c(){g(e.$$.fragment)},l(r){_(e.$$.fragment,r)},m(r,o){h(e,r,o),t=!0},p:$,i(r){t||(w(e.$$.fragment,r),t=!0)},o(r){R(e.$$.fragment,r),t=!1},d(r){S(e,r)}}}const C={title:"Sonar Sweep",day:"01",year:"2021",description:"How much does the terrain change below the ship?",longRuntime:!1,result1:"Result",result2:"Result",keywords:[""],visible:!0};function p(n){return n=n.split(`
-`).map(e=>Number(e)),n}function D(n){let e=0;for(let t=1;t<n.length;t++)n[t]>n[t-1]&&(e+=1);return e}function H(n){let e=0,t=0,r=n[0]+n[1]+n[2];for(let o=3;o<n.length;o++)t=n[o]+n[o-1]+n[o-2],t>r&&(e+=1),r=t;return e}function T(n,e,t){let r,o;return u(n,a,s=>t(0,r=s)),u(n,l,s=>t(1,o=s)),i(l,o="Sonar Sweep",o),i(a,r=!1,r),b.set(p(x)),[]}class J extends c{constructor(e){super(),m(this,e,T,v,f,{})}}export{J as default,C as metadata};
+9105`;function v(n){let e,t;return e=new b({props:{part1:H,part2:T,preprocessor:p,metadata:D}}),{c(){g(e.$$.fragment)},l(r){_(e.$$.fragment,r)},m(r,o){h(e,r,o),t=!0},p:$,i(r){t||(w(e.$$.fragment,r),t=!0)},o(r){R(e.$$.fragment,r),t=!1},d(r){S(e,r)}}}const D={title:"Sonar Sweep",day:"01",year:"2021",description:"How much does the terrain change below the ship?",longRuntime:!1,result1:"Result",result2:"Result",keywords:[""],visible:!0};function p(n){return n=n.split(`
+`).map(e=>Number(e)),n}function H(n){let e=0;for(let t=1;t<n.length;t++)n[t]>n[t-1]&&(e+=1);return e}function T(n){let e=0,t=0,r=n[0]+n[1]+n[2];for(let o=3;o<n.length;o++)t=n[o]+n[o-1]+n[o-2],t>r&&(e+=1),r=t;return e}function k(n,e,t){let r,o;return a(n,i,s=>t(0,r=s)),a(n,l,s=>t(1,o=s)),u(l,o="Sonar Sweep",o),u(i,r=!1,r),y.set(p(x)),[]}class I extends c{constructor(e){super(),m(this,e,k,v,f,{})}}export{I as default,D as myMetadata};

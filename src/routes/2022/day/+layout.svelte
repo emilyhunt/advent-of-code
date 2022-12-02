@@ -1,5 +1,5 @@
 <script>
-    import { metadata } from '$lib/stores';
+    import { metadata, initMetadata } from '$lib/stores';
     import { page } from '$app/stores';
 
     function getDayYearFromPath(basePath) {
@@ -26,34 +26,38 @@
     let yearPath = '/2021'; 
     let previousDay = '01'; 
     let nextDay = '03';
-    let pageMetadata = {
-        title: "Metadata undefined",
-        day: "00",
-        year: "2022",
-        description: "Metadata undefined",
-        longRuntime: false,
-        result1: "Result",
-        result2: "Result",
-        keywords: ["",],
-        visible: true,
-    };
+    let metadataKey = "202101";
 
     // Various page formatting things
     $: {
         if ($page.url.pathname.includes("template") !== true) {
             [day, year, yearPath] = getDayYearFromPath($page.url.pathname);
             [previousDay, nextDay] = getNextPreviousDays(day);
-            pageMetadata = $metadata[year + day];
+            metadataKey = year + day;
+        } else {
+            day = "01";
+            year = "2021";
+            metadataKey = year + day;
         }
     }
 
 </script>
 
-<h2>day {pageMetadata.day}: {pageMetadata.title}</h2>
+<!-- Get page metadata -->
+<!-- Using https://stackoverflow.com/questions/71804119/initializing-a-custom-svelte-store-asynchronously -->
+{#await initMetadata()}
+    <p>fetching page metadata...</p>
+{:then}
 
-<p>{pageMetadata.description}</p>
 
-{#if pageMetadata.longRuntime}
+<!-- Content goes here -->
+<h2>day {$metadata[metadataKey].day}: {$metadata[metadataKey].title}</h2>
+
+<p>{$metadata[metadataKey].description}</p>
+
+<p class="keywords">Keywords: {$metadata[metadataKey].keywords.sort()}</p>
+
+{#if $metadata[metadataKey].longRuntime}
     <p style="color:red;">WARNING! This solution can take a while to run.</p>
 {/if}
 
@@ -70,3 +74,17 @@
     <a href="{nextDay}">[next]</a> 
     {/if}
 </footer>
+
+
+<!-- Error handling -->
+{:catch error}
+    <p>Failed to fetch page metadata! Error: {error.message}</p>
+{/await}
+
+<style>
+    .keywords {
+        color:#7e7e7e;
+        font-size: small;
+        margin-top: -10px;
+    }
+</style>
