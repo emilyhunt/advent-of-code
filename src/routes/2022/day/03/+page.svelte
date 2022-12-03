@@ -1,13 +1,14 @@
 <script context="module">
     export const myMetadata = {
-        title: "Puzzle Title",
+        title: "Rucksack Reorganization",
         day: "03",  // Day, as string
         year: "2022",  // Year, as string
-        description: "Puzzle description",
+        description: "We need to help the Elves reorganize their rucksacks! A fun puzzle on string operations. I "
+                     + "really like the ascii code part of my solutions.",
         longRuntime: false,  // Warning for if the page takes a while to run (> 1 second)
-        result1: "Result",  // Text to display part 1 result with
-        result2: "Result",  // Text to display part 2 result with
-        keywords: ["",],  // General keywords about the code used
+        result1: "Priority of duplicated items",  // Text to display part 1 result with
+        result2: "Priority of Elf group badges",  // Text to display part 2 result with
+        keywords: ["for", "for..in", "strings", "ascii code", "arrays"],  // General keywords about the code used
         visible: true,  // Whether or not to display in menus
     };
 </script>
