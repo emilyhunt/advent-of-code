@@ -3,9 +3,7 @@ import { cyrb53 } from '$lib/hash'
 import { generateMetadata } from './pages';
 
 // Metadata set by a page and passed up to its layout
-// TODO: this should just be in some metadta json really
-export let pageTitle = writable('undefined');
-export let longRuntime = writable(false);
+export let pageName = writable("none");
 
 // export let metadata = writable({generated: false});
 // export let metadata = readable(

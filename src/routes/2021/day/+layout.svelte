@@ -1,54 +1,92 @@
 <script>
-    import { pageTitle, longRuntime } from '$lib/stores';
+    import { metadata, initMetadata, pageName } from '$lib/stores';
     import { page } from '$app/stores';
 
     function getDayYearFromPath(basePath) {
         return [
-            Number(basePath.slice(-2)),  // Day, as number
-            Number(basePath.slice(1, 5)),  // Year, as number
+            basePath.slice(-2),  // Day, as str
+            basePath.slice(1, 5),  // Year, as str
             basePath.slice(0, 5)  // Year with a / in front
         ];
     };
 
     function getNextPreviousDays(day) {
+        const dayNumber = Number(day);
         return [
-            String(day - 1).padStart(2, "0"),  // Previous day as string
-            String(day + 1).padStart(2, "0")   // Next day as string
+            String(dayNumber - 1).padStart(2, "0"),  // Previous day as string
+            String(dayNumber + 1).padStart(2, "0")   // Next day as string
         ];
     };
     
+    // Todo replace with solution that uses metadata
     const numberOfPages = Object.keys(import.meta.glob("./[!template]**/+page.svelte")).length;
 
-    let day = 2;
-    let year = 2021;
+    let day = "02";
+    let year = "2021";
     let yearPath = '/2021'; 
     let previousDay = '01'; 
     let nextDay = '03';
 
     // Various page formatting things
     $: {
-        [day, year, yearPath] = getDayYearFromPath($page.url.pathname);
-        [previousDay, nextDay] = getNextPreviousDays(day);
+        // Get current page deets
+        if ($page.url.pathname.includes("template") !== true) {
+            [day, year, yearPath] = getDayYearFromPath($page.url.pathname);
+            [previousDay, nextDay] = getNextPreviousDays(day);
+        } else {
+            day = "01";
+            year = "2021";
+        }
+        // Update name of this page for document title
+        $pageName = `${year} Day ${Number(day)}`
     }
 
 </script>
 
-<h2>day {String(day).padStart(2, '0')}: {$pageTitle}</h2>
+<!-- Get page metadata -->
+<!-- Using https://stackoverflow.com/questions/71804119/initializing-a-custom-svelte-store-asynchronously -->
+{#await initMetadata()}
+    <p>fetching page metadata...</p>
+{:then}
 
-{#if $longRuntime}
+
+<!-- Content goes here -->
+<h2>day {$metadata[year][day].day}: {$metadata[year][day].title}</h2>
+
+<p>{$metadata[year][day].description}</p>
+
+<p class="keywords">Keywords: {$metadata[year][day].keywords.sort()}</p>
+
+{#if $metadata[year][day].longRuntime}
     <p style="color:red;">WARNING! This solution can take a while to run.</p>
 {/if}
 
 <slot></slot>
 
 <footer style="margin-top: 2em;">
-    {#if day > 1}
+    {#if Number(day) > 1}
     <a href="{previousDay}">[previous]</a> 
     {/if}
 
     <a href="{yearPath}">[{yearPath.slice(1)}]</a>
 
-    {#if day < numberOfPages}
+    {#if Number(day) < numberOfPages}
     <a href="{nextDay}">[next]</a> 
     {/if}
 </footer>
+
+
+<!-- Error handling -->
+{:catch error}
+    <p>Failed to fetch page metadata! Error: {error.message}</p>
+{/await}
+
+
+<!-- Style, obvs -->
+<style>
+    .keywords {
+        color:#7e7e7e;
+        font-size: small;
+        margin-top: -10px;
+    }
+</style>

@@ -1,11 +1,8 @@
 <script>
-    import { getPages } from "$lib/pages";
-    import { page } from "$app/stores"
+    import { pageName } from "$lib/stores";
+    import PuzzleList from "$lib/PuzzleList.svelte";
 
-    const url = $page.url.pathname + "/";
-    const childPages = import.meta.glob("./day/[!template]*/+page.svelte");
-
-    const pages = getPages(url, childPages);
+    $pageName = "2022";
 </script>
 
 <p>
@@ -17,10 +14,4 @@
 
 <p>Below are all attempted solutions for 2022.</p>
 
-<ul>
-    {#each pages as page}
-      <li>
-        <a href={page}>[{page.slice(6).replace("/", " ")}]</a>
-      </li>
-    {/each}
-</ul>
+<PuzzleList yearFilter={"2022"} format={"day title"}/>

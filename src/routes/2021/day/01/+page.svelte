@@ -14,12 +14,8 @@
 </script>
 
 <script>
-    import { pageTitle, longRuntime, currentDefaultData } from '$lib/stores';
+    import { currentDefaultData } from '$lib/stores';
     import Runner from "$lib/Runner.svelte"
-
-    // Page settings
-    $pageTitle = "Sonar Sweep";  // Add title for page here
-    $longRuntime = false;  // Warning for if the page takes a while to run (> 5 seconds)
     
     /****************************** ADD CODE HERE!!!! *****************************/
     // Preprocessor applied to all data. E.g.: you may want an array without 

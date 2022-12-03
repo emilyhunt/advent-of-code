@@ -1,5 +1,5 @@
 <script>
-    import { metadata, initMetadata } from '$lib/stores';
+    import { metadata, initMetadata, pageName } from '$lib/stores';
     import { page } from '$app/stores';
 
     function getDayYearFromPath(basePath) {
@@ -29,6 +29,7 @@
 
     // Various page formatting things
     $: {
+        // Get current page deets
         if ($page.url.pathname.includes("template") !== true) {
             [day, year, yearPath] = getDayYearFromPath($page.url.pathname);
             [previousDay, nextDay] = getNextPreviousDays(day);
@@ -36,6 +37,8 @@
             day = "01";
             year = "2021";
         }
+        // Update name of this page for document title
+        $pageName = `${year} Day ${Number(day)}`
     }
 
 </script>

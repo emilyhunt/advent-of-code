@@ -1,38 +1,28 @@
 <script>
-    import { getPages } from "$lib/pages";
-    import { page } from "$app/stores"
-    
-    const url = $page.url.pathname;
-    const childPages = import.meta.glob("./[!template]*/+page.svelte");
-    const allChildPages = import.meta.glob("./*/day/[!template]*/+page.svelte");
+    import { pageName } from "$lib/stores";
+    import PuzzleList from "$lib/PuzzleList.svelte";
 
-    const pages = getPages(url, childPages);
-    const allPages = getPages(url, allChildPages);
+    // Set page name
+    $pageName = "none";
 
 </script>
 
-<p>Welcome to my attempts at solving <a href="https://adventofcode.com/">Advent of Code</a> puzzles using Javascript and <a href="https://svelte.dev/">Svelte</a>.</p>
+<p>Welcome to my attempts at solving <a href="https://adventofcode.com/">Advent of Code</a> puzzles using Javascript and 
+    <a href="https://svelte.dev/">Svelte</a>.</p>
 
 <p>These puzzles run entirely in your web browser. Static code is hosted using GitHub Pages.</p>
 
 <img src="https://i.giphy.com/media/RdzzVrtvfqnM4/giphy.webp" alt="Cats wearing Christmas Hats" width=300>
 
-<h2>Attempts by year</h2>
+
+<h2>Puzzles by year</h2>
 
 <ul>
-    {#each pages as page}
-      <li>
-        <a href={page}>[{page.slice(1)}]</a>
-      </li>
-    {/each}
+    <li><a href="/2021">[2021] - Find the Lost Sleigh Keys</a></li>
+    <li><a href="/2022">[2022] - The Magic Star Expedition</a></li>
 </ul>
 
-<h2>All attempted puzzles</h2>
 
-<ul>
-    {#each allPages as page}
-        <li>
-        <a href={page}>[{page.slice(1, 5)} // {page.slice(6).replace("/", " ")}]</a>
-        </li>
-    {/each}
-</ul>
+<h2>All completed puzzles</h2>
+
+<PuzzleList dateAscending={false}/>
