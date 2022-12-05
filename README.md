@@ -27,7 +27,7 @@ The site is made with the web framework Svelte and built using Sveltekit. The si
 * Improve theme (just use the VS Code colours? I dunno)
 * ~~Add gifs for a sweet web 1.0 aesthetic~~
 * Chat about the project on Twitter
-* Update dev etc. README.md information to provide instructions for setting this repo up on other machines
+* ~~Update dev etc. README.md information to provide instructions for setting this repo up on other machines~~
 
 ## Acknowledgements
 * ric2b's [2021 Advent of Code site](https://github.com/ric2b/advent-of-code/tree/master/2021) was used as inspiration
@@ -36,22 +36,37 @@ The site is made with the web framework Svelte and built using Sveltekit. The si
 
 
 
-## Instructions for use from create-svelte
+## Instructions for use
 
 ### Developing
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+1. Ensure you have node.js installed (I recommend node.js v18, which gives you npm v8, which is required!)
+
+2. Clone the project with:
+
+```bash
+git clone https://github.com/emilyhunt/advent-of-code.git
+```
+
+3. Run the following in the project directory to install dependencies:
+
+```bash
+npm install
+```
+
+4. Start a development server using:
 
 ```bash
 npm run dev
-
-# or start the server and open the app in a new browser tab
+```
+or open it automatically in a new browser tab with
+```bash
 npm run dev -- --open
 ```
 
 ### Building
 
-To create a production version of your app:
+To create a production version of the app:
 
 ```bash
 npm run build
