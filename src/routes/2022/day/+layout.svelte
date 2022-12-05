@@ -55,7 +55,7 @@
 
 <p>{$metadata[year][day].description}</p>
 
-<p class="keywords">Keywords: {$metadata[year][day].keywords.sort()}</p>
+<p class="keywords">Keywords: {$metadata[year][day].keywords.sort().join(", ")}</p>
 
 {#if $metadata[year][day].longRuntime}
     <p style="color:red;">WARNING! This solution can take a while to run.</p>
