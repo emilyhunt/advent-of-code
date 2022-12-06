@@ -6,7 +6,7 @@ View the site at [aoc.emilydoesastro.com](https://aoc.emilydoesastro.com/).
 
 This site is an attempt at learning and improving my skills working with web technologies. I'm solving [Advent of Code](https://adventofcode.com/) puzzles in web browsers! It's also a part of the [Backstage Advent of Code](https://github.com/emilyhunt/backstage-advent-of-code) group.
 
-The site is made with the web framework Svelte and built using Sveltekit. The site lives statically on GitHub pages. I might do some of the puzzles using Typescript, but I want to do more Javascript first before I make my life more complicated...
+The site is made with the web framework Svelte and built using Sveltekit. The site lives statically on GitHub pages. I might do some of the puzzles using Typescript, but I want to make sure I'm comfortable with Javascript first.
 
 ## To-do list
 
