@@ -10,24 +10,10 @@ The site is made with the web framework Svelte and built using Sveltekit. The si
 
 ## To-do list
 
-### Priorities
-* ~~Make working initial template site~~
-* ~~Add auto-generated menus~~
-* ~~Write data loading library functions (asynchronously?)~~
-* ~~Add a way to run code on-demand with a button (asynchronously?)~~
-* ~~Make a working demo or two for 2021 puzzles~~
-* ~~Update Runner component to be more flexible/split up, allowing for custom data visualisations. (MAYBE: split it up and let user decide what to do with subcomponents if needed?)~~
-
-### Optional
-* ~~Add timing information to code runs~~
-* ~~Add a way to use custom inputs~~
-* ~~Change page metadata to be stored in a .json file or within page scripts themselves as exportable module parameters~~
 * Add ~~keywords for each page~~ and a way to sort pages by keywords (e.g.: `lists`, `sorting`, etc)
 * Basic visualisation support (integrate e.g. chartjs into library stuff?)
-* Improve theme (just use the VS Code colours? I dunno)
-* ~~Add gifs for a sweet web 1.0 aesthetic~~
+* Improve theme and page design (just use the VS Code colours & add a width? I dunno)
 * Chat about the project on Twitter
-* ~~Update dev etc. README.md information to provide instructions for setting this repo up on other machines~~
 
 ## Acknowledgements
 * ric2b's [2021 Advent of Code site](https://github.com/ric2b/advent-of-code/tree/master/2021) was used as inspiration
