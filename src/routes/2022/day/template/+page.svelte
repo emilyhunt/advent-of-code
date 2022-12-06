@@ -1,4 +1,6 @@
 <script context="module">
+    // The following should be edited for every puzzle, and includes
+    // metadata on this page accessible across the whole site.
     export const myMetadata = {
         title: "Puzzle Title",
         day: "00",  // Day, as string
@@ -13,24 +15,41 @@
 </script>
 
 <script>
-    import { currentDefaultData, currentExampleData } from '$lib/stores';
-    import Runner from "$lib/Runner.svelte";
+    /****************************** Add all custom code below *****************************/
     
-    /****************************** ADD CODE HERE!!!! *****************************/
-    // Preprocessor applied to all data. E.g.: you may want an array without 
+    /**
+     * Preprocessor applied to all possible inputs. 
+     * Should be a quick function that does useful setup steps compatible with parts 1 and 2.
+     * 
+     * @param {string} data - raw input from the file
+     */
     function preprocessData (data) {
         return data;
     };
 
+    /**
+     * Takes preprocessed data as an argument and returns answer for part 1.
+     * 
+     * @param {any} data - generic preprocessed data, expecting the format as returned by preprocessData
+     */
     function part1 (data) {
         return 0;
     };
 
+    /**
+     * Takes preprocessed data as an argument and returns answer for part 2.
+     * 
+     * @param {any} data - generic preprocessed data, expecting the format as returned by preprocessData
+     */
     function part2 (data) {
         return 0;
     };
 
-    /******************************                   *****************************/
+    /****************************** - - - - - - - - - - - - - *****************************/
+
+    // Required imports - don't modify!
+    import { currentDefaultData, currentExampleData } from '$lib/stores';
+    import Runner from "$lib/Runner.svelte";
 
     // Fetch data
     import data from "./data.txt?raw";
@@ -38,6 +57,9 @@
     currentDefaultData.set(preprocessData(data));
     currentExampleData.set(preprocessData(exampleData));
 
+    // console.log($currentExampleData);
+    // console.log($currentDefaultData);
 </script>
 
+<!-- Component that provides UI to interact with functions defined above. -->
 <Runner part1={part1} part2={part2} preprocessor={preprocessData} metadata={myMetadata}/>
