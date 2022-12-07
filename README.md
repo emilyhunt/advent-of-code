@@ -14,6 +14,7 @@ The site is made with the web framework Svelte and built using Sveltekit. The si
 * Basic visualisation support (integrate e.g. chartjs into library stuff?)
 * Improve theme and page design (just use the VS Code colours & add a width? I dunno)
 * Chat about the project on Twitter
+* Throw errors at runtime in console in dev mode, or catch+throw visually on the production site (unless I can somehow find a way to show a whole stack trace, which I'd be fine with then having visually - e.g. in the result area.) If the error happens when using custom data, the site should suggest to the user that their input may be invalid.
 
 ## Acknowledgements
 * ric2b's [2021 Advent of Code site](https://github.com/ric2b/advent-of-code/tree/master/2021) was used as inspiration
