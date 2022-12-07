@@ -7,8 +7,10 @@
 
 </script>
 
-<p>Welcome to my attempts at solving <a href="https://adventofcode.com/">Advent of Code</a> puzzles using Javascript and 
-    <a href="https://svelte.dev/">Svelte</a>.</p>
+<p>
+    Welcome to my attempts at solving <a href="https://adventofcode.com/">Advent of Code</a> puzzles using Javascript
+    and <a href="https://svelte.dev/">Svelte</a>.
+</p>
 
 <p>These puzzles run entirely in your web browser. Static code is hosted using GitHub Pages.</p>
 

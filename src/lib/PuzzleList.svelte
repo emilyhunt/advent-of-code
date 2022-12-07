@@ -69,7 +69,7 @@
 <!-- Get page metadata -->
 <!-- Using https://stackoverflow.com/questions/71804119/initializing-a-custom-svelte-store-asynchronously -->
 {#await populateList()}
-    <p></p>
+    <p>Generating list of puzzles...</p>
 {:then}
 
 <!-- Content goes here -->

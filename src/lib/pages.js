@@ -30,8 +30,10 @@
 }
 
 export async function loadPageMetadata(year, day) {
+    console.log(year, day);
     let { myMetadata } = await import(`./../routes/20${year}/day/${day}/+page.svelte`);
     //let { metadata } = await import(`../routes/2021/01/+page.svelte`);
+    console.log(year, day, "done");
     return myMetadata;
 };
 
@@ -42,23 +44,20 @@ export async function generateMetadata () {
     
     const allPuzzles = import.meta.glob("../routes/20*/day/[!template]*/+page.svelte");
     const allPuzzleLinks = getPages("", allPuzzles);
-
+    
+    // Grab all metadata!
+    // See https://stackoverflow.com/questions/35612428/call-async-await-functions-in-parallel
+    let metadataArray = await Promise.all(allPuzzleLinks.map(x => loadPageMetadata(x.slice(3, 5), x.slice(-2))));    
+    
+    // Add href values and write
     let metadataToWrite = {};
-    let miniMetadata;
 
-    for (const puzzleLink of allPuzzleLinks) {
-        // Get metadata file
-        miniMetadata = await loadPageMetadata(puzzleLink.slice(3, 5), puzzleLink.slice(-2));
-
+    for (let miniMetadata of metadataArray) {
         // Add more information
         miniMetadata["href"] = `/${miniMetadata.year}/day/${miniMetadata.day}`
 
         // Save to the main metadata object
-
-        if (!(miniMetadata.year in metadataToWrite)) {
-            metadataToWrite[miniMetadata.year] = {};
-        }
-
+        if (!(miniMetadata.year in metadataToWrite)) { metadataToWrite[miniMetadata.year] = {}; }
         metadataToWrite[miniMetadata.year][miniMetadata.day] = miniMetadata;
     }
 
