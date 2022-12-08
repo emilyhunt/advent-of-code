@@ -30,10 +30,10 @@
 }
 
 export async function loadPageMetadata(year, day) {
-    console.log(year, day);
+    //console.log(year, day);
     let { myMetadata } = await import(`./../routes/20${year}/day/${day}/+page.svelte`);
     //let { metadata } = await import(`../routes/2021/01/+page.svelte`);
-    console.log(year, day, "done");
+    //console.log(year, day, "done");
     return myMetadata;
 };
 
