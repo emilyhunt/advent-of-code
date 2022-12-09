@@ -21,6 +21,8 @@ export async function initMetadata() {
         console.log("Initialising metadata...")
         let metadataToWrite = await generateMetadata();
         metadata.set(metadataToWrite);
+        // console.log("- fetch completed");
+        // console.log(metadataToWrite);
     }
 };
 
