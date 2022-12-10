@@ -11,6 +11,7 @@
 
     // Result and runtime in seconds
     export let result = "";
+    export let displayResult = true;
     export let runtimeMilliseconds = -1;
     let runtimeSeconds = -1;
     let runtimeToDisplay = "";
@@ -68,8 +69,14 @@
 <!-- Only display the runtime if we've ran at least once!-->
 {#if runtimeMilliseconds !== -1}
     <div class="result">
-        <p>{resultText} = {result}</p>
-        <p>(ran in {runtimeToDisplay})</p>
+        {#if displayResult}
+            <p>{resultText} = {result}</p>
+            <p>(ran in {runtimeToDisplay})</p>
+        {:else}
+            <p>(ran in {runtimeToDisplay})</p>
+            <p>{resultText}:</p>
+        {/if}
+        
     </div>
     <!-- <br> -->
 {/if}
@@ -80,11 +87,6 @@
         /* margin: 0 20px; */
         display:inline-block;
     }
-
-    .result {
-        color: #5bbdda;
-    }
-
 </style>
 
 

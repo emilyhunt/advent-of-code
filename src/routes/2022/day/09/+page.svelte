@@ -10,7 +10,7 @@
         longRuntime: false,  // Warning for if the page takes a while to run (> 1 second)
         result1: "Number of unique locations tail visited",  // Text to display part 1 result with
         result2: "Number of unique locations tail visited",  // Text to display part 2 result with
-        keywords: ["arrays", "objects", "for..of", "while", "coordinates", "movement"],  // General keywords about code
+        keywords: ["arrays", "objects", "for", "for..of", "while", "coordinates", "movement"],  // General keywords
         visible: true,  // Whether or not to display in menus
     };
 </script>
