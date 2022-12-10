@@ -2,7 +2,7 @@
     // The following should be edited for every puzzle, and includes
     // metadata on this page accessible across the whole site.
     export const myMetadata = {
-        title: "Puzzle Title",
+        title: "Cathode-Ray Tube",
         day: "10",  // Day, as string
         year: "2022",  // Year, as string
         description: "The screen on our communicator is broken! Let's fix it. This was my first time using classes in "
@@ -35,6 +35,8 @@
 
     // Customs
     let result2 = "";
+    let resultLines = [""];
+    $: resultLines = result2.split("\n");
 </script>
 
 <h3>Part 1</h3>
@@ -50,19 +52,19 @@
     displayResult={false}
 />
 
-<p class="result2">{result2}</p>
-
-<!-- {#each lines as line}
-    <p>{line}</p>
-{/each} -->
+{#each resultLines as line}
+    <p class="result2">{line}</p>
+{/each}
 
 <br>
 <br>
 <GetUserData/>
 
 <style>
+    /* Custom style for screen result output that puts paragraph elements on top of one another */
     .result2 {
         color: #5bbdda;
-        line-height: 0.7;
+        margin-top: -0.5em ;
+        margin-bottom: 0em ;
     }
 </style>
