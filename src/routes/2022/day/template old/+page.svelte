@@ -15,14 +15,45 @@
 </script>
 
 <script>
+    /****************************** Add all custom code below *****************************/
+    
+    /**
+     * Preprocessor applied to all possible inputs. 
+     * Should be a quick function that does useful setup steps compatible with parts 1 and 2.
+     * 
+     * @param {string} data - raw input from the file
+     */
+    function preprocessData (data) {
+        return data;
+    };
+
+    /**
+     * Takes preprocessed data as an argument and returns answer for part 1.
+     * 
+     * @param {any} data - generic preprocessed data, expecting the format as returned by preprocessData
+     */
+    function part1 (data) {
+        return 0;
+    };
+
+    /**
+     * Takes preprocessed data as an argument and returns answer for part 2.
+     * 
+     * @param {any} data - generic preprocessed data, expecting the format as returned by preprocessData
+     */
+    function part2 (data) {
+        return 0;
+    };
+
+    /****************************** - - - - - - - - - - - - - *****************************/
+
     // Required imports - don't modify!
     import { currentDefaultData, currentExampleData } from '$lib/stores';
-    import { preprocessData, part1, part2 } from './main';
     import Runner from "$lib/Runner.svelte";
 
     // Fetch data
-    import data from "./_data/data.txt?raw";
-    import exampleData from "./_data/exampleData.txt?raw";
+    import data from "./data.txt?raw";
+    import exampleData from "./exampleData.txt?raw";
     currentDefaultData.set(preprocessData(data));
     currentExampleData.set(preprocessData(exampleData));
 
