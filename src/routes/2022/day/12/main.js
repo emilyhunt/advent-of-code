@@ -1,5 +1,8 @@
 /* Primary functions for solving the puzzle live here. */
-import { Graph } from "./node";
+import { Graph } from "./graph";
+
+/* Constants */
+const MAXIMUM_CLIMB = 1;
 
 /**
  * Preprocessor applied to all possible inputs. 
@@ -21,11 +24,15 @@ export function preprocessData (data) {
  */
 export function part1 (preprocessedData) {
     const graph = new Graph(preprocessedData);
+
+    // Go from the start of the graph ("S") to the end ("E").
     const { path } = graph.getShortestPath(
         graph.idStart, 
         graph.idEnd, 
-        (callerHeight, testerHeight) => callerHeight + 1 < testerHeight
+        // Edge is invalid if the test node's height is more than MAXIMUM_CLIMB greater the current node's height.
+        (currentHeight, testHeight) => currentHeight + MAXIMUM_CLIMB < testHeight
     );
+
     return path.length - 1;
 };
 
@@ -36,10 +43,14 @@ export function part1 (preprocessedData) {
  */
 export function part2 (preprocessedData) {
     const graph = new Graph(preprocessedData);
+
+    // Go from the end of the graph ("E") to the lowest point.
     const { path } = graph.getShortestPath(
         graph.idEnd, 
         "lowest", 
-        (callerHeight, testerHeight) => callerHeight - 1 > testerHeight
+        // Edge is invalid if the test node's height is more than MAXIMUM_CLIMB less than the current node's height.
+        (currentHeight, testHeight) => currentHeight - MAXIMUM_CLIMB > testHeight
     );
+
     return path.length - 1;
 };

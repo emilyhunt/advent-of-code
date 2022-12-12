@@ -8,10 +8,10 @@
         description: "We need to find the shortest path up the hill to get the best signal for our communicator! "
                      + "It took me SO LONG to implement Djikstra's algorithm for this one, honestly I should have just "
                      + "brute forced it. But oh well, it was fun =) I feel I understand JS classes better now.",
-        longRuntime: true,  // Warning for if the page takes a while to run (> 1 second)
+        longRuntime: false,  // Warning for if the page takes a while to run (> 1 second)
         result1: "Length of shortest path to highest point",  // Text to display part 1 result with
         result2: "Length of shortest path from lowest point to highest",  // Text to display part 2 result with
-        keywords: ["TODO: OPTIMISE", "sets", "arrays", "classes", "Djikstra's algorithm", "pathfinding"],  // General keywords about the code used
+        keywords: ["sets", "arrays", "classes", "Djikstra's algorithm", "pathfinding"],  // General keywords about the code used
         visible: true,  // Whether or not to display in menus
     };
 </script>
