@@ -2,7 +2,7 @@
     // The following should be edited for every puzzle, and includes
     // metadata on this page accessible across the whole site.
     export const myMetadata = {
-        title: "Puzzle Title",
+        title: "Proboscidea Volcanium",
         day: "16",  // Day, as string
         year: "2022",  // Year, as string
         description: "The cave is about to fill up with lava! Which valves should we open to reduce pressure, and how "
