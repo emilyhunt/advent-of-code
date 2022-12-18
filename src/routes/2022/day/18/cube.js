@@ -1,5 +1,10 @@
 /* Functions for creating a set of cube locations */
 
+/**
+ * Turns input array of lines into a set of cube location strings.
+ * @param {array} preprocessedData 
+ * @returns {set}
+ */
 export function createCubeSet(preprocessedData) {
     const cubeSet = new Set();
     
@@ -11,17 +16,34 @@ export function createCubeSet(preprocessedData) {
 }
 
 
-export function cubeToArray(cubeString) {
+/**
+ * Convers a cube location string into a numerical array.
+ * @param {string} cubeString 
+ * @returns {array}
+ */
+export function cubeStringToArray(cubeString) {
     return cubeString.split(",").map(value => Number(value));
 }
 
 
-export function getAllStringsFromCubeString(cubeString) {
-    return getAllStringsFromCubeArray(...cubeToArray(cubeString));
+/**
+ * Returns all 6 adjacent neighbors of a given cube location string as an array of cube location strings.
+ * @param {string} cubeString 
+ * @returns {array}
+ */
+export function getAllNeighborsFromString(cubeString) {
+    return getAllNeighbors(...cubeStringToArray(cubeString));
 }
 
 
-export function getAllStringsFromCubeArray(x, y, z) {
+/**
+ * Returns all 6 adjacent neighbors of a given cube location string as an array of cube location strings.
+ * @param {number} x 
+ * @param {number} y 
+ * @param {number} z 
+ * @returns 
+ */
+export function getAllNeighbors(x, y, z) {
     return [
         `${x},${y},${z - 1}`,
         `${x},${y},${z + 1}`,
@@ -34,17 +56,18 @@ export function getAllStringsFromCubeArray(x, y, z) {
 
 
 /**
- * Counts the number of free faces in CubeSet
+ * Counts the number of free faces in cubeSet, i.e. those with no immediate neighbor.
  * @param {set} cubeSet 
- * @returns 
+ * @returns {number}
  */
 export function countFreeFaces(cubeSet) {
     // Cycle over every cube, checking to see if cubes around it exist
     let freeFaces = 0;
 
     for (const cube of cubeSet) {
-        const allCubesToCheck = getAllStringsFromCubeString(cube);
+        const allCubesToCheck = getAllNeighborsFromString(cube);
 
+        // Every adjacent possible cube that has no cube there means the current cube's face is free!
         for (const face of allCubesToCheck) {
             if (!cubeSet.has(face)) {
                 freeFaces += 1;
@@ -57,15 +80,15 @@ export function countFreeFaces(cubeSet) {
 
 
 /**
- * Calculates minimum and maximum values of all cubes in cubeSet and returns as an object.
+ * Calculates minimum and maximum values of all cubes in cubeSet and returns this as an object.
  * @param {set} cubeSet 
- * @returns 
+ * @returns {object}
  */
 export function getMinMaxValues(cubeSet) {
     let numericalValues = [];
 
     for (const cube of cubeSet) {
-        numericalValues.push(cubeToArray(cube));
+        numericalValues.push(cubeStringToArray(cube));
     }
 
     const xValues = numericalValues.map(a => a[0]);

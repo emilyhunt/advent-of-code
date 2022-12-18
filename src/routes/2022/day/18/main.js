@@ -1,7 +1,7 @@
 /* Primary functions for solving the puzzle live here. */
 
-import { countFreeFaces, createCubeSet, getMinMaxValues } from "./cubeSet";
-import { getUnblockedFaces, countReachableFaces } from "./reachableFaces";
+import { countFreeFaces, createCubeSet, getMinMaxValues } from "./cube";
+import { getExposedFaces, countReachableFaces } from "./reachable";
 
 /**
  * Preprocessor applied to all possible inputs. 
@@ -10,7 +10,11 @@ import { getUnblockedFaces, countReachableFaces } from "./reachableFaces";
  * @returns {any} data, preprocessed into something useful!
  */
 export function preprocessData (data) {
-    return data.trim().split("\n").sort((a, b) => Number(a.split(",")[2]) - Number(b.split(",")[2]));
+    return data
+        .trim()
+        .split("\n")
+        .map(x => x.replace("\r", ""))  // I have literally no idea why I need this line but it made it work lol. WTF is \r??? Why is he there???
+        .sort((a, b) => Number(a.split(",")[2]) - Number(b.split(",")[2]));
 };
 
 /**
@@ -20,6 +24,7 @@ export function preprocessData (data) {
  */
 export function part1 (preprocessedData) {
     const cubeSet = createCubeSet(preprocessedData);
+    console.log("hi");
     return countFreeFaces(cubeSet);
 };
 
@@ -33,8 +38,9 @@ export function part2 (preprocessedData) {
     const cubeSet = createCubeSet(preprocessedData);
     const minMaxValues = getMinMaxValues(cubeSet);
 
-    // Find all reachable faces - these are the ones we need to test!
-    const unblockedFaces = getUnblockedFaces(cubeSet);
+    // Find all exposed faces - these are the ones we need to test!
+    const exposedFaces = getExposedFaces(cubeSet);
 
-    return countReachableFaces(cubeSet, unblockedFaces, minMaxValues);
+    // Count how many of these exposed faces can be reached
+    return countReachableFaces(cubeSet, exposedFaces, minMaxValues);
 };
