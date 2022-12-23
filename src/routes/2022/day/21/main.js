@@ -1,6 +1,7 @@
 /* Primary functions for solving the puzzle live here. */
 
 import { solveMonkeyJobs } from "./monkeys";
+import { solveSimultaneousEquation } from "./simultaneousEqn";
 
 /**
  * Preprocessor applied to all possible inputs. 
@@ -27,5 +28,7 @@ export function part1 (preprocessedData) {
  * @returns {any} result of part 2!
  */
 export function part2 (preprocessedData) {
-    return solveMonkeyJobs(preprocessedData, true);
+    const equation = solveMonkeyJobs(preprocessedData, true);
+    console.log("equation", equation);
+    return solveSimultaneousEquation(equation);
 };

@@ -1,5 +1,18 @@
 /* Functions for calculating*/
 
+import { countInstances } from "./simultaneousEqn";
+
+
+function addBrackets(expression) {
+    if (countInstances(expression[0], " ")) {
+        expression[0] = "( " + expression[0] + " )";
+    }
+    if (countInstances(expression[2], " ")) {
+        expression[2] = "( " + expression[2] + " )";
+    }
+    return expression.join(" ");
+}
+
 
 function applyOperator(unsolvedMonkey, withHumanVariable) {
 
@@ -7,11 +20,11 @@ function applyOperator(unsolvedMonkey, withHumanVariable) {
     if (withHumanVariable 
             && (typeof unsolvedMonkey.monkeyOne === "string" 
                 || typeof unsolvedMonkey.monkeyTwo === "string")) {
-        return [
+        return addBrackets([
             unsolvedMonkey.monkeyOne.toString(), 
             unsolvedMonkey.operator, 
             unsolvedMonkey.monkeyTwo.toString()
-        ].join(" ");
+        ]);
     }
 
     if (unsolvedMonkey.operator === "+") {

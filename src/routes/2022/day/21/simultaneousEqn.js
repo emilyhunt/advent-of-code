@@ -1,5 +1,10 @@
 /* Functions for solving simultaneous equations */
 
+// I can't believe this is how I have to use this fucking module
+import nerdamer from "nerdamer";
+import { solve } from "nerdamer/Solve";
+solve;
+
 
 /**
  * https://stackoverflow.com/a/4009771/12709989
@@ -7,46 +12,35 @@
  * @param {*} substring 
  * @returns 
  */
-function countInstances(string, substring) {
+export function countInstances(string, substring) {
     return string.split(substring).length - 1;
 }
 
 
-function applyOperator(expressionSplit, operator) {
-
-    const newExpression = [];
-
-    // for (let i = 2; i < expressionSplit.length; i++) {
-    //     const left = expressionSplit[i - 2];
-    //     const operator = expressionSplit[i - 1];
-    //     const right = expressionSplit[i];
-
-    //     if (operator === operator && left !== "humn" && right !== "humn") {
-    //         if (operator === "/") {
-    //             newExpression.push(left / right);
-    //         } else if (operator === "*") {
-    //             newExpression.push(left * right);
-    //         }
-    //     }
-    // }
-
-}
+// const OPERAND_MAPPING = {
+//     "/": (left, right) => left / right,
+//     "*": (left, right) => left * right,
+//     "+": (left, right) => left + right,
+//     "-": (left, right) => left - right,
+// }
 
 
-function simplifyExpression(expression) {
-    let expressionSplit = expression.split(" ");
+// function simplifyExpression(expression, result, variableName) {
+//     // Remove trailing/leading spaces
+//     expression = expression.trim();
 
-    if (expressionSplit.length === 1) {
-        return expressionSplit[0];
-    }
+//     // Find first bracket instance
+//     const firstBracket = expression.indexOf("(");
+//     const lastBracket = expression.lastIndexOf(")");
 
-    expressionSplit = applyOperator(expressionSplit, "/");
-    expressionSplit = applyOperator(expressionSplit, "*");
-    expressionSplit = applyOperator(expressionSplit, "+");
-    expressionSplit = applyOperator(expressionSplit, "-");
+//     // Handle if the entire expression is bracketted
+//     if (firstBracket === 0 && lastBracket === expression.length - 1) {
 
-    return expressionSplit;
-}
+//     // Handle if one side is not bracketed
+//     } else {
+
+//     }
+// }
 
 
 export function solveSimultaneousEquation(equation) {
@@ -60,7 +54,7 @@ export function solveSimultaneousEquation(equation) {
         throw `Equation contains invalid number of equality operators '='`;
     }
 
-    const [leftSide, rightSide] = equation.split("=");
-
-
+    equation = equation.replaceAll(variable, "x");
+    console.log(equation);
+    return nerdamer.solve(equation, "x");
 }
