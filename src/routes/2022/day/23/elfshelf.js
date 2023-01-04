@@ -48,10 +48,11 @@ export class ElfShelf {
      * @param {array} preprocessedData 
      */
     addInitialElves(preprocessedData) {
-        for (let y = 0; y < preprocessedData.length; y++) {
-            for (let x = 0; x < preprocessedData[0].length; x++) {
-                if (preprocessedData[y][x] === "#") {
-                    this.newElf(x, y);
+        for (let j = 0; j < preprocessedData.length; j++) {
+        // for (let y = preprocessedData.length - 1; y >= 0; y--) {
+            for (let i = 0; i < preprocessedData[0].length; i++) {
+                if (preprocessedData[j][i] === "#") {
+                    this.newElf(i, preprocessedData.length - j - 1);
                 }
             }
         }
@@ -60,7 +61,7 @@ export class ElfShelf {
     newElf(x, y) {
         const coordinate = coordinateToString(x, y);
         this.elfLocations.add(coordinate);
-        this.elves.push(new Elf(x, y));
+        this.elves.push(new Elf(this.elves.length, x, y));
     }
 
     directionContainsElf(direction, neighborIsElf) {
@@ -104,6 +105,7 @@ export class ElfShelf {
         // Secondly, we look over all move directions and see if any are valid
         for (const direction of this.directionCheckOrder) {
             const result = this.directionContainsElf(direction, neighborIsElf);
+
             if (!result.containsElf) {
                 // Assign the elf as movable
                 elf.canMove = true;
@@ -132,13 +134,16 @@ export class ElfShelf {
     }
 
     performMoves() {
+        let elvesMoved = 0;
         for (const elf of this.elves.filter(x => x.canMove)) {
             if (!this.proposedMoveDuplicates.has(elf.newLocation)) {
                 this.elfLocations.delete(elf.currentLocation);
                 elf.moveToNewLocation();
+                elvesMoved++;
                 this.elfLocations.add(elf.currentLocation);
             }
         }
+        return elvesMoved;
     }
 
     shiftPriorityDirection() {
@@ -150,21 +155,47 @@ export class ElfShelf {
         this.proposedMoveDuplicates = new Set();
     }
 
-    moveElves(rounds) {
-        // console.log("start");
-        // console.log(this.toString());
+    moveElves(rounds, debug) {
+        // Handle input
+        let moveUntilEnd = rounds === "until end";
+        if (moveUntilEnd) {
+            rounds = 1000000;  // Theoretical max number of rounds to go for
+        }
 
-        for (let i = 0; i < rounds; i++) {
+        // Print initial state if desired
+        this.sendDebuggingOutput("start", debug);
+
+        // Cycle over the requested number of rounds
+        let i;
+        for (i = 1; i <= rounds; i++) {
             this.considerMoves();
-            this.performMoves();
+            const elvesMoved = this.performMoves();
             this.shiftPriorityDirection();
             this.wipeElfMoveSets();
 
-            // console.log(i);
-            // console.log(this.toString());
-        }
+            this.sendDebuggingOutput(i, debug);
 
-        return this.getFreeElfRectangleAmount();
+            // Special exit condition if the user has requested we go until all elves stop moving
+            if (moveUntilEnd && elvesMoved === 0) {
+                return i;
+            }
+        }
+        return i;
+    }
+
+    sendDebuggingOutput(message, debug) {
+        if (!debug || debug === undefined || debug < 1) {
+            return;
+        }
+        
+        // Log the message if we're at debug level 1
+        console.log(message);
+
+        // At debug level 2, we also print the change in the elf grid (expensive)
+        if (debug > 1) {
+            console.log(this.toString());
+            console.log(JSON.parse(JSON.stringify(this.elves)));
+        }
     }
 
     getXYLimits() {
@@ -190,16 +221,53 @@ export class ElfShelf {
 
     toString() {
         const limits = this.getXYLimits();
-        const grid = create2DArray(limits.height, limits.width, 0);
+        let grid = create2DArray(limits.height, limits.width, 0);
 
         for (const elf of this.elves) {
             grid[elf.y - limits.yMin][elf.x - limits.xMin] += 1;
         }
 
-        return grid
-            .map(row => row.map(
-                value => value === 0 ? "." : value === 1 ? "#" : value)
-                .join(""))
-            .join("\n");
+        // Join up the rows and map values to their new ones
+        grid = grid.map(
+            row => row.map(value => value === 0 ? "." : value === 1 ? "#" : value)
+        );
+
+        // Flip the grid for display purposes
+        grid = grid.reverse();
+        
+        // Add some numbers too! Firstly: x values
+        // Make x values as strings to work out how much bigger the grid needs to be
+        const xStrings = [];
+        for (let x = limits.xMin; x <= limits.xMax; x++) {
+            xStrings.push(x.toString());
+        }
+        const maxLength = Math.max(...xStrings.map(s => s.length));
+
+        // Create blank spots on the grid
+        grid.unshift([" "]);
+        //grid.unshift(new Array(grid[1].length).fill("_"));
+        // grid.unshift([" "]);
+
+        for (let i = 0; i < maxLength; i++) {
+            grid.unshift(new Array(grid[0].length).fill(" "));
+        }
+
+        // Cycle over every x string, adding it to the blank spots
+        for (let indexX = 0; indexX < xStrings.length; indexX++) {
+            const lengthDifference = maxLength - xStrings[indexX].length;
+            for (let indexY = maxLength - 1; indexY >= 0; indexY--) {
+                grid[indexY][indexX] = xStrings[indexX][indexY - lengthDifference];
+            }
+        }
+
+        // Now also add Y values on the right (WAY easier to format lol)
+        let height = limits.yMin;
+        for (let i = grid.length - 1; i > grid.length - 1 - limits.height; i--) {
+            grid[i].push(`  ${height}`);
+            height++;
+        }
+
+        // Join into one big string and return
+        return grid.map(row => row.join("")).join("\n");
     }
 }

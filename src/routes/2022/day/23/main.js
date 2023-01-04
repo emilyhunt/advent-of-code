@@ -19,8 +19,11 @@ export function preprocessData (data) {
  */
 export function part1 (preprocessedData) {
     const numberOfRounds = 10;
+    const debugLevel = 0;
+
     const elfShelf = new ElfShelf(preprocessedData);
-    return elfShelf.moveElves(numberOfRounds);
+    elfShelf.moveElves(numberOfRounds, debugLevel);
+    return elfShelf.getFreeElfRectangleAmount();
 };
 
 /**
@@ -29,5 +32,10 @@ export function part1 (preprocessedData) {
  * @returns {any} result of part 2!
  */
 export function part2 (preprocessedData) {
-    return 0;
+    const numberOfRounds = "until end";
+    const debugLevel = 0;
+
+    const elfShelf = new ElfShelf(preprocessedData);
+    const finalRound = elfShelf.moveElves(numberOfRounds, debugLevel);
+    return finalRound;
 };

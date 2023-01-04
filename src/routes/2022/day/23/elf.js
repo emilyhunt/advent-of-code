@@ -1,7 +1,8 @@
 import { coordinateToString, stringToCoordinate } from "./elfshelf";
 
 export class Elf  {
-    constructor(x, y) {
+    constructor(id, x, y) {
+        this.id = id;
         this.x = x;
         this.y = y;
         this.canMove = false;
