@@ -27,7 +27,7 @@ class BlizzardPoint {
         } else if (value === "<") {
             blizzard.left = true;
         } else if (value !== ".") {
-            throw `Input blizzard direction ${value} not recognised!`;
+            throw `Input blizzard direction '${value}' not recognised!`;
         }
 
         return blizzard;
@@ -48,7 +48,9 @@ export class BlizzardSolver {
         // Basic initialisation
         this.height = preprocessedData.length;
         this.width = preprocessedData[0].length;
+        this.cycleLength = this.width * this.height;
         this.state = [];
+        this.currentState = 0;
 
         // Add the data values at every point
         for (let y = 0; y < this.height; y++) {
@@ -121,19 +123,32 @@ export class BlizzardSolver {
         }
     }
 
-    getAllStates(debug) {
-        const cycleLength = this.width * this.height;
+    getNextState() {
+        this.currentState++;
 
+        // Return this state easily if we already calculated it before
+        if (this.currentState >= this.cycleLength) {
+            return this.solvedStates[this.currentState % this.cycleLength];
+        }
+
+        // Otherwise, calculate a new one!
+        this.calculateNextState();
+        this.convertStateToBoolean();
+
+        return this.solvedStates[this.currentState];
+    }
+
+    getAllStates(debug) {
         if (debug) {
             console.log("DEBUGGING MODE")
-            console.log("Total number of cycles:", cycleLength);
+            console.log("Total number of cycles:", this.cycleLength);
             console.log("Initial state:");
             console.log(this.currentStateToString());
         }
 
         // Cycle over all states in the cycle
         let currentState = 1
-        while (currentState <= cycleLength) {
+        while (currentState <= this.cycleLength) {
             this.calculateNextState();
             this.convertStateToBoolean();
 
@@ -148,7 +163,7 @@ export class BlizzardSolver {
         // Check that the start is the same as the end (if not, then this isn't cyclical)
         for (let y = 0; y < this.height; y++) {
             for (let x = 0; x < this.width; x++) {
-                if (this.solvedStates[0][y][x] !== this.solvedStates[cycleLength][y][x]) {
+                if (this.solvedStates[0][y][x] !== this.solvedStates[this.cycleLength][y][x]) {
                     throw `Initial state is not equal to theoretical next cycle state at ${x},${y}!`;
                 }
             }
