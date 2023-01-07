@@ -23,6 +23,9 @@ export function createMap(preprocessedData) {
 }
 
 
+function createMap3D () {}
+
+
 function processMove(moves, indexStart, position, map) {
     // Get first index of a left or a right, meaning we can get how far to go
     const firstLeft = moves.indexOf("L", indexStart);
