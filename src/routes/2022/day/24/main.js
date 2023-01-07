@@ -1,6 +1,7 @@
 /* Primary functions for solving the puzzle live here. */
 
 import { BlizzardSolver } from "./blizzard_solver";
+import { findShortestPath } from "./path";
 
 /**
  * Preprocessor applied to all possible inputs. 
@@ -11,6 +12,7 @@ import { BlizzardSolver } from "./blizzard_solver";
 export function preprocessData (data) {
     return data
         .trim()  // Remove leading/trailing whitespace
+        .replaceAll("\r", "")
         .split("\n")
         .slice(1, -1)  // Remove first and last lines (not useful)
         .map(x => x.replaceAll("#", ""));  // Remove walls (I know where they are, not useful)
@@ -22,13 +24,19 @@ export function preprocessData (data) {
  * @returns {any} result of part 1
  */
 export function part1 (preprocessedData) {
-
+    // Get all possible states of the blizzard, for later use
     const blizzardSolver = new BlizzardSolver(preprocessedData);
-    const allStates = blizzardSolver.getAllStates();
+    // const allStates = blizzardSolver.getAllStates(true);  // Useful for debugging, can output all states to console
 
-    
+    // Find length of shortest path between start and end
+    const coordinates = {
+        startX: 0, 
+        startY: -1, 
+        endX: blizzardSolver.width - 1, 
+        endY: blizzardSolver.height, 
+    };
 
-    return 0;
+    return findShortestPath(coordinates, blizzardSolver, {debug: false});
 };
 
 /**
@@ -37,5 +45,21 @@ export function part1 (preprocessedData) {
  * @returns {any} result of part 2!
  */
 export function part2 (preprocessedData) {
-    return 0;
+    // Get all possible states of the blizzard, for later use
+    const blizzardSolver = new BlizzardSolver(preprocessedData);
+
+    // Find length of shortest path between start and end, then end and start, then start and end... you get the picture
+    const coordinates = {
+        startX: 0, 
+        startY: -1, 
+        endX: blizzardSolver.width - 1, 
+        endY: blizzardSolver.height, 
+    };
+
+    const debug = false;
+    const pathLength1 = findShortestPath(coordinates, blizzardSolver, {debug: debug});
+    const pathLength2 = findShortestPath(coordinates, blizzardSolver, {debug: debug, reversed: true});
+    const pathLength3 = findShortestPath(coordinates, blizzardSolver, {debug: debug});
+
+    return pathLength1 + pathLength2 + pathLength3;
 };
