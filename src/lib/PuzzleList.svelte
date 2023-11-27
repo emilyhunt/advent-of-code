@@ -1,6 +1,5 @@
 <script>
     import { metadata } from '$lib/stores';
-    import { onMount } from 'svelte';
 
     export let yearFilter = null;
     //export let day = "";
