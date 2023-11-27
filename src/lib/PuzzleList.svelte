@@ -1,5 +1,6 @@
 <script>
-    import { metadata, initMetadata } from '$lib/stores';
+    import { metadata } from '$lib/stores';
+    import { onMount } from 'svelte';
 
     export let yearFilter = null;
     //export let day = "";
@@ -8,7 +9,6 @@
     export let dateAscending = true;
     export let format = "year day title";
     let pagesToList = Object();
-    let pagesOrder;
 
     function listFormatter (key) {
         if (format === "year day title") {
@@ -20,18 +20,20 @@
         }
     }
 
-    async function populateList() {
+    function populateList() {
         // Ensure the metadata store has been setup and get a list of all possible puzzles
-        await initMetadata();
+        // await initMetadata();
+        console.log("hi")
+        
 
         // We can take a shortcut if a year is specified
         if (yearFilter !== null) {
-            pagesToList = $metadata[yearFilter];
+            pagesToList = metadata[yearFilter];
         } else {
             // Otherwise, flatten into single object containing all pages
-            for (const year in $metadata) {
-                for (const day in $metadata[year]) {
-                    pagesToList[year + day] = $metadata[year][day]
+            for (const year in metadata) {
+                for (const day in metadata[year]) {
+                    pagesToList[year + day] = metadata[year][day]
                 }
             }
         }
@@ -58,38 +60,45 @@
             }
         }
 
-        pagesOrder = Object.keys(pagesToList);
+        let pagesOrder = Object.keys(pagesToList);
         if (!dateAscending) {
             pagesOrder = pagesOrder.reverse();
         }
+        return pagesOrder;
     }
+
+    // onMount( async () => {
+    //     populateList()
+    // });
 
 </script>
 
 <!-- Get page metadata -->
 <!-- Using https://stackoverflow.com/questions/71804119/initializing-a-custom-svelte-store-asynchronously -->
-{#await populateList()}
+<!-- {#await populateList()}
     <p>Generating list of puzzles...</p>
-{:then}
+{:then} -->
 
 <!-- Content goes here -->
-{#if pagesOrder.length > 0}
-    <ul>
-        {#each pagesOrder as key}
-            <li>
-                <a href={pagesToList[key].href}>
-                    {listFormatter(key)}
-                </a>
-            </li>
-        {/each}
-    </ul>
-{:else}
+<!-- {#if pagesOrder === undefined}
+    <p>ERROR: pagesOrder not defined</p>
+{:else if pagesOrder.length > 0} -->
+<ul>
+    {#each populateList() as key}
+        <li>
+            <a href={pagesToList[key].href}>
+                {listFormatter(key)}
+            </a>
+        </li>
+    {/each}
+</ul>
+<!-- {:else}
     <p>ERROR: no valid pages found matching filters year={yearFilter}, keywords={keywordsFilter}</p>
-{/if}
+{/if} -->
 
 
 
 <!-- Error handling -->
 <!-- {:catch error}
     <p>Failed to fetch page metadata! Error: {error.message}</p> -->
-{/await}
+<!-- {/await} -->

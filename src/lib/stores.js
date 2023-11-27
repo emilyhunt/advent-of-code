@@ -13,18 +13,24 @@ export let pageName = writable("none");
 //         return function stop() {};
 //     }
 // );
-export let metadata = writable(Object());
-let metadataGenerated = false;
 
-export async function initMetadata() {
-    if (!metadataGenerated) {
-        console.log("Initialising metadata...")
-        let metadataToWrite = await generateMetadata();
-        metadata.set(metadataToWrite);
-        // console.log("- fetch completed");
-        // console.log(metadataToWrite);
-    }
-};
+let metadataGenerated = false;
+export let metadata = await generateMetadata();
+metadataGenerated = true;
+// export let metadata = writable(Object());
+// let metadataGenerated = false;
+
+export async function initMetadata() {};
+
+// export async function initMetadata() {
+//     if (!metadataGenerated) {
+//         console.log("Initialising metadata...")
+//         let metadataToWrite = await generateMetadata();
+//         metadata.set(metadataToWrite);
+//         // console.log("- fetch completed");
+//         // console.log(metadataToWrite);
+//     }
+// };
 
 // Current default data
 export let currentDefaultData = writable("");

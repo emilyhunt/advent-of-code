@@ -2,15 +2,15 @@
     // The following should be edited for every puzzle, and includes
     // metadata on this page accessible across the whole site.
     export const myMetadata = {
-        title: "Puzzle Title",
+        title: "Monkey Map",
         day: "22",  // Day, as string
         year: "2022",  // Year, as string
-        description: "Puzzle description",
+        description: "I never actually finished this one...",
         longRuntime: false,  // Warning for if the page takes a while to run (> 1 second)
         result1: "Result",  // Text to display part 1 result with
         result2: "Result",  // Text to display part 2 result with
         keywords: ["",],  // General keywords about the code used
-        visible: false,  // Whether or not to display in menus
+        visible: true,  // Whether or not to display in menus
     };
 </script>
 

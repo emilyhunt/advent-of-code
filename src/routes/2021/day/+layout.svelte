@@ -1,5 +1,5 @@
 <script>
-    import { metadata, initMetadata, pageName } from '$lib/stores';
+    import { metadata, pageName } from '$lib/stores';
     import { page } from '$app/stores';
 
     function getDayYearFromPath(basePath) {
@@ -45,19 +45,19 @@
 
 <!-- Get page metadata -->
 <!-- Using https://stackoverflow.com/questions/71804119/initializing-a-custom-svelte-store-asynchronously -->
-{#await initMetadata()}
+<!-- {#await initMetadata()}
     <p>fetching page metadata...</p>
-{:then}
+{:then} -->
 
 
 <!-- Content goes here -->
-<h2>day {$metadata[year][day].day}: {$metadata[year][day].title}</h2>
+<h2>day {metadata[year][day].day}: {metadata[year][day].title}</h2>
 
-<p>{$metadata[year][day].description}</p>
+<p>{metadata[year][day].description}</p>
 
-<p class="keywords">Keywords: {$metadata[year][day].keywords.sort()}</p>
+<p class="keywords">Keywords: {metadata[year][day].keywords.sort().join(", ")}</p>
 
-{#if $metadata[year][day].longRuntime}
+{#if metadata[year][day].longRuntime}
     <p style="color:red;">WARNING! This solution can take a while to run.</p>
 {/if}
 
@@ -77,9 +77,9 @@
 
 
 <!-- Error handling -->
-{:catch error}
+<!-- {:catch error}
     <p>Failed to fetch page metadata! Error: {error.message}</p>
-{/await}
+{/await} -->
 
 
 <!-- Style, obvs -->

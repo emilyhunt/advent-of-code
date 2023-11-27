@@ -11,8 +11,8 @@ The site is made with the web framework Svelte and built using Sveltekit. The si
 ## To-do list
 ### Things I should do before AOC 2023
 
-* Throw errors at runtime in console in dev mode, or catch+throw visually on the production site (unless I can somehow find a way to show a whole stack trace, which I'd be fine with then having visually - e.g. in the result area.) If the error happens when using custom data, the site should suggest to the user that their input may be invalid.
-* Change page metadata to a) be stored in .JSON and b) not be a store (it doesn't change! Why is it a store!)
+* ~~Throw errors at runtime in console in dev mode, or catch+throw visually on the production site (unless I can somehow find a way to show a whole stack trace, which I'd be fine with then having visually - e.g. in the result area.) If the error happens when using custom data, the site should suggest to the user that their input may be invalid.~~
+* Change page metadata to a) be stored in .JSON and ~~b) not be a store (it doesn't change! Why is it a store!)~~
 * Move all pages over to the new template format and change default "page source code" link to be the folder on GitHub.
 * Improve theme and page design (just use the VS Code colours & add a width? I dunno)
 * Make a better favicon
