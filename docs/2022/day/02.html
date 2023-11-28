@@ -9,19 +9,19 @@
 		<link href="../../_app/immutable/assets/2.109cb5c3.css" rel="stylesheet">
 		<link href="../../_app/immutable/assets/GetUserData.968c560a.css" rel="stylesheet">
 		<link href="../../_app/immutable/assets/_page.e344fce4.css" rel="stylesheet">
-		<link rel="modulepreload" href="../../_app/immutable/entry/start.0c96987a.js">
+		<link rel="modulepreload" href="../../_app/immutable/entry/start.329ebc6a.js">
 		<link rel="modulepreload" href="../../_app/immutable/chunks/scheduler.82952e60.js">
-		<link rel="modulepreload" href="../../_app/immutable/chunks/singletons.82bc2dd6.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/singletons.4d59e06e.js">
 		<link rel="modulepreload" href="../../_app/immutable/chunks/index.efdf3441.js">
-		<link rel="modulepreload" href="../../_app/immutable/entry/app.52f561da.js">
+		<link rel="modulepreload" href="../../_app/immutable/entry/app.8c1fcb85.js">
 		<link rel="modulepreload" href="../../_app/immutable/chunks/preload-helper.a4192956.js">
 		<link rel="modulepreload" href="../../_app/immutable/chunks/index.4f02d16c.js">
-		<link rel="modulepreload" href="../../_app/immutable/nodes/0.ff9db1bd.js">
-		<link rel="modulepreload" href="../../_app/immutable/chunks/stores.43cf0ff8.js">
+		<link rel="modulepreload" href="../../_app/immutable/nodes/0.495bce03.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/stores.36e593cd.js">
 		<link rel="modulepreload" href="../../_app/immutable/chunks/stores.7b94593c.js">
-		<link rel="modulepreload" href="../../_app/immutable/nodes/3.bab85abe.js">
-		<link rel="modulepreload" href="../../_app/immutable/chunks/pages.8ae9830a.js">
-		<link rel="modulepreload" href="../../_app/immutable/nodes/9.757cd642.js">
+		<link rel="modulepreload" href="../../_app/immutable/nodes/3.51d38a1d.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/pages.f1f23461.js">
+		<link rel="modulepreload" href="../../_app/immutable/nodes/10.757cd642.js">
 		<link rel="modulepreload" href="../../_app/immutable/chunks/_page.a722374b.js">
 		<link rel="modulepreload" href="../../_app/immutable/chunks/Runner.63361570.js">
 		<link rel="modulepreload" href="../../_app/immutable/chunks/GetUserData.fe33abc0.js">
@@ -29,11 +29,11 @@
 	</head>
 	<body>
 		<div>     <header><h1 style="color: #e3e3e3; margin-bottom: 0.2em; margin-top: 0.2em;" data-svelte-h="svelte-11nbxet">Emily&#39;s Advent of Code</h1> <a href="/" data-svelte-h="svelte-18rze8u">[home]</a> <a href="https://github.com/emilyhunt/advent-of-code">[repo]</a> <a href="https://github.com/emilyhunt/advent-of-code/tree/main/src/routes/2022/day/02/%2Bpage.svelte">[page source code]</a></header>     <h2>day 02: Rock Paper Scissors</h2> <p>For some reason, we need to win the Rock Paper Scissors tournament. Suspicious...
-I wasn't especially happy with how I solved this one - I was too tired!</p> <p class="keywords svelte-742mxw">Keywords: for..of, logic, string comparison</p>  <h3 data-svelte-h="svelte-1m4yx5a">Part 1</h3> <div class="row"><button class="inline-button svelte-1n91ggw" data-svelte-h="svelte-17ohcua">Example</button> <button class="inline-button svelte-1n91ggw" data-svelte-h="svelte-l6odqz">My data</button> </div>   <h3 data-svelte-h="svelte-a4p1in">Part 2</h3> <div class="row"><button class="inline-button svelte-1n91ggw" data-svelte-h="svelte-17ohcua">Example</button> <button class="inline-button svelte-1n91ggw" data-svelte-h="svelte-l6odqz">My data</button> </div>   <br> <br> <div class="s s--slider svelte-kegc3z" style="font-size:20px"><span id="switch-17">Custom data input</span> <button role="switch" aria-checked="false" aria-labelledby="switch-17" class="svelte-kegc3z"></button></div>  <footer style="margin-top: 2em;"><a href="01">[previous]</a> <a href="/2022">[2022]</a> <a href="03">[next]</a></footer>    
+I wasn't especially happy with how I solved this one - I was too tired!</p> <p class="keywords svelte-742mxw">Keywords: for..of, logic, string comparison</p>  <h3 data-svelte-h="svelte-1m4yx5a">Part 1</h3> <div class="row"><button class="inline-button svelte-1n91ggw" data-svelte-h="svelte-17ohcua">Example</button> <button class="inline-button svelte-1n91ggw" data-svelte-h="svelte-l6odqz">My data</button> </div>   <h3 data-svelte-h="svelte-a4p1in">Part 2</h3> <div class="row"><button class="inline-button svelte-1n91ggw" data-svelte-h="svelte-17ohcua">Example</button> <button class="inline-button svelte-1n91ggw" data-svelte-h="svelte-l6odqz">My data</button> </div>   <br> <br> <div class="s s--slider svelte-kegc3z" style="font-size:20px"><span id="switch-25">Custom data input</span> <button role="switch" aria-checked="false" aria-labelledby="switch-25" class="svelte-kegc3z"></button></div>  <footer style="margin-top: 2em;"><a href="01">[previous]</a> <a href="/2022">[2022]</a> <a href="03">[next]</a></footer>    
 			
 			<script>
 				{
-					__sveltekit_8at1yu = {
+					__sveltekit_md5638 = {
 						base: new URL("../..", location).pathname.slice(0, -1),
 						env: {}
 					};
@@ -43,11 +43,11 @@ I wasn't especially happy with how I solved this one - I was too tired!</p> <p c
 					const data = [null,null,null];
 
 					Promise.all([
-						import("../../_app/immutable/entry/start.0c96987a.js"),
-						import("../../_app/immutable/entry/app.52f561da.js")
+						import("../../_app/immutable/entry/start.329ebc6a.js"),
+						import("../../_app/immutable/entry/app.8c1fcb85.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element, {
-							node_ids: [0, 3, 9],
+							node_ids: [0, 3, 10],
 							data,
 							form: null,
 							error: null
