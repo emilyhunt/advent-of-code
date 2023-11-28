@@ -35,14 +35,17 @@
     }
 
     function onExampleData () {
+        console.log("hi")
         defaultTask($currentExampleData);
     }
 
     function onDefaultData () {
+        console.log("hi")
         defaultTask($currentDefaultData);
     }
 
     function onUserData () {
+        console.log("hi")
         defaultTask(getUserData());
     }
 

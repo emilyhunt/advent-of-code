@@ -15,7 +15,7 @@ export let pageName = writable("none");
 // );
 
 let metadataGenerated = false;
-export let metadata = await generateMetadata();
+export let metadata = generateMetadata();
 metadataGenerated = true;
 // export let metadata = writable(Object());
 // let metadataGenerated = false;

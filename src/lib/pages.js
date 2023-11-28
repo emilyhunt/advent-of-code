@@ -37,17 +37,23 @@ export async function loadPageMetadata(year, day) {
     return myMetadata;
 };
 
+
+async function getMetadataArray (allPuzzleLinks) {
+    return await Promise.all(allPuzzleLinks.map(x => loadPageMetadata(x.slice(3, 5), x.slice(-2))));
+}
+
+
 /**
  * Generates a metadata object covering all valid puzzles to display in menus, etc.
  */
-export async function generateMetadata () {
+export function generateMetadata () {
     
     const allPuzzles = import.meta.glob("../routes/20*/day/[!template]*/+page.svelte");
     const allPuzzleLinks = getPages("", allPuzzles);
     
     // Grab all metadata!
     // See https://stackoverflow.com/questions/35612428/call-async-await-functions-in-parallel
-    let metadataArray = await Promise.all(allPuzzleLinks.map(x => loadPageMetadata(x.slice(3, 5), x.slice(-2))));    
+    let metadataArray = getMetadataArray(allPuzzleLinks);
     
     // Add href values and write
     let metadataToWrite = {};
