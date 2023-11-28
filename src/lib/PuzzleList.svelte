@@ -82,6 +82,8 @@ Using https://stackoverflow.com/questions/71804119/initializing-a-custom-svelte-
                 {listFormatter(key)}
             </a>
         </li>
+    {:else}
+    <p style="color: grey;">(the list component is broken, click on a page and then click back to home to have it show...)</p>
     {/each}
 </ul>
 
