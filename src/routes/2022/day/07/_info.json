@@ -1,0 +1,11 @@
+{
+    "title": "No Space Left On Device",
+    "day": "07",
+    "year": "2022",
+    "description": "The communication device doesn't have enough space left to install a critical update, and the main character of the Advent of Code doesn't know the du command... which directory can we delete to free up space?",
+    "longRuntime": false,
+    "result1": "Sum of directories smaller than threshold",
+    "result2": "Size of best directory to delete",
+    "keywords": ["objects", "recursion", "map", "arrays"],
+    "visible": true
+}

@@ -1,0 +1,11 @@
+{
+    "title": "Cathode-Ray Tube",
+    "day": "10",
+    "year": "2022",
+    "description": "The screen on our communicator is broken! Let's fix it. This was my first time using classes in Javascript! I used 'self' instead of 'this' SO MANY TIMES.",
+    "longRuntime": false,
+    "result1": "Sum of all signal strengths",
+    "result2": "Screen output",
+    "keywords": ["arrays", "classes", "custom output", "for", "while"],
+    "visible": true
+}

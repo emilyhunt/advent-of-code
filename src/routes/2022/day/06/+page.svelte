@@ -1,18 +1,6 @@
 <script context="module">
-    // The following should be edited for every puzzle, and includes
-    // metadata on this page accessible across the whole site.
-    export const myMetadata = {
-        title: "Tuning Trouble",
-        day: "06",  // Day, as string
-        year: "2022",  // Year, as string
-        description: "We've been given a handheld communicator... but it's broken! This was a neat little puzzle, I "
-                     + "even had enough time to optimise by solution.",
-        longRuntime: false,  // Warning for if the page takes a while to run (> 1 second)
-        result1: "Characters until first packet marker",  // Text to display part 1 result with
-        result2: "Characters until first message marker",  // Text to display part 2 result with
-        keywords: ["sets", "for", "while"],  // General keywords about the code used
-        visible: true,  // Whether or not to display in menus
-    };
+    import * as _info from "./_info.json";
+    export const myMetadata = _info;
 </script>
 
 <script>

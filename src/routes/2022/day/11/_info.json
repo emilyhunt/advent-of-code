@@ -1,0 +1,11 @@
+{
+    "title": "Monkey in the Middle",
+    "day": "11",
+    "year": "2022",
+    "description": "Some monkeys have stolen our stuff! Can we get it back? This puzzle was ROUGH. It took me so long to see how to solve part 2, and I had soooo many JS issues because I'm new to JS classes. Arrghh.",
+    "longRuntime": false,
+    "result1": "Monkey Business score",
+    "result2": "Monkey Business score",
+    "keywords": ["TODO: COMMENT CODE"],
+    "visible": true
+}

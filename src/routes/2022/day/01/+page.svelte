@@ -1,15 +1,6 @@
 <script context="module">
-    export const myMetadata = {
-        title: "Calorie Counting",
-        day: "01",  // Day, as string
-        year: "2022",  // Year, as string
-        description: "Let's count how many calories of food the Elves have!",
-        longRuntime: false,  // Warning for if the page takes a while to run (> 1 second)
-        result1: "Highest calorie count",  // Text to display part 1 result with
-        result2: "Sum of three highest",  // Text to display part 2 result with
-        keywords: ["arrays", "summing", "sorting", "for..of"],
-        visible: true,  // Whether or not to display in menus
-    };
+    import * as _info from "./_info.json";
+    export const myMetadata = _info;
 </script>
 
 <script>

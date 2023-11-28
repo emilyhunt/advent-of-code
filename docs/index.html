@@ -5,77 +5,53 @@
 		<link rel="icon" href="./favicon.png" />
 		<meta name="viewport" content="width=device-width" />
 		<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
-		<meta http-equiv="content-security-policy" content="">
-		<link href="./_app/immutable/assets/GetUserData-80957b2c.css" rel="stylesheet">
-		<link href="./_app/immutable/assets/_page-e344fce4.css" rel="stylesheet">
-		<link rel="modulepreload" href="./_app/immutable/start-6329b8de.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/index-69c26055.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/singletons-f4d3c52d.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/preload-helper-b21cceae.js">
-		<link rel="modulepreload" href="./_app/immutable/components/pages/_layout.svelte-290a11ec.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/stores-8f690e45.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/stores-9a814c3a.js">
-		<link rel="modulepreload" href="./_app/immutable/modules/pages/_layout.js-7b9cbfbc.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/_layout-8d2a742b.js">
-		<link rel="modulepreload" href="./_app/immutable/components/pages/_page.svelte-d7049c9b.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/PuzzleList-d716bff7.js"><title>Emily's Advent of Code</title><!-- HEAD_svelte-1uo06u1_START --><!-- HEAD_svelte-1uo06u1_END -->
+		
+		<link href="./_app/immutable/assets/GetUserData.968c560a.css" rel="stylesheet">
+		<link href="./_app/immutable/assets/_page.e344fce4.css" rel="stylesheet">
+		<link rel="modulepreload" href="./_app/immutable/entry/start.0c96987a.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/scheduler.82952e60.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/singletons.82bc2dd6.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index.efdf3441.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/app.52f561da.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/preload-helper.a4192956.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index.4f02d16c.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/0.ff9db1bd.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/stores.43cf0ff8.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/stores.7b94593c.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/4.15e3f28b.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/PuzzleList.5222e635.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/each.e59479a4.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/pages.8ae9830a.js"><title>Emily's Advent of Code</title><!-- HEAD_svelte-1uo06u1_START --><!-- HEAD_svelte-1uo06u1_END -->
 	</head>
 	<body>
-		<div>
+		<div>     <header><h1 style="color: #e3e3e3; margin-bottom: 0.2em; margin-top: 0.2em;" data-svelte-h="svelte-11nbxet">Emily&#39;s Advent of Code</h1> <a href="/" data-svelte-h="svelte-18rze8u">[home]</a> <a href="https://github.com/emilyhunt/advent-of-code">[repo]</a> <a href="https://github.com/emilyhunt/advent-of-code/tree/main/src/routes//%2Bpage.svelte">[page source code]</a></header> <p data-svelte-h="svelte-keraaz">Welcome to my attempts at solving <a href="https://adventofcode.com/">Advent of Code</a> puzzles using Javascript
+    and <a href="https://svelte.dev/">Svelte</a>.</p> <p data-svelte-h="svelte-1qn5vug">These puzzles run entirely in your web browser. Static code is hosted using GitHub Pages.</p> <img src="https://i.giphy.com/media/RdzzVrtvfqnM4/giphy.webp" alt="Cats wearing Christmas Hats" width="300"> <h2 data-svelte-h="svelte-12o333f">Puzzles by year</h2> <ul data-svelte-h="svelte-8fsbj3"><li><a href="/2021">[2021] - Find the Lost Sleigh Keys</a></li> <li><a href="/2022">[2022] - The Magic Star Expedition</a></li></ul> <h2 data-svelte-h="svelte-1k96o7n">All completed puzzles</h2>    <ul></ul>   
+			
+			<script>
+				{
+					__sveltekit_8at1yu = {
+						base: new URL(".", location).pathname.slice(0, -1),
+						env: {}
+					};
 
+					const element = document.currentScript.parentElement;
 
+					const data = [null,null];
 
-
-
-
-<header><h1 style="color: #e3e3e3; margin-bottom: 0.2em; margin-top: 0.2em;">Emily&#39;s Advent of Code</h1>
-
-    <a href="/">[home]</a> <a href="https://github.com/emilyhunt/advent-of-code">[repo]</a> <a href="https://github.com/emilyhunt/advent-of-code/tree/main/src/routes//%2Bpage.svelte">[page source code]</a></header>
-
-<p>Welcome to my attempts at solving <a href="https://adventofcode.com/">Advent of Code</a> puzzles using Javascript
-    and <a href="https://svelte.dev/">Svelte</a>.
-</p>
-
-<p>These puzzles run entirely in your web browser. Static code is hosted using GitHub Pages.</p>
-
-<img src="https://i.giphy.com/media/RdzzVrtvfqnM4/giphy.webp" alt="Cats wearing Christmas Hats" width="300">
-
-
-<h2>Puzzles by year</h2>
-
-<ul><li><a href="/2021">[2021] - Find the Lost Sleigh Keys</a></li>
-    <li><a href="/2022">[2022] - The Magic Star Expedition</a></li></ul>
-
-
-<h2>All completed puzzles</h2>
-
-
-
-
-    <p>Generating list of puzzles...</p>
-
-
-
-		<script type="module" data-sveltekit-hydrate="1nf9btt">
-			import { start } from "./_app/immutable/start-6329b8de.js";
-
-			start({
-				env: {},
-				hydrate: {
-					status: 200,
-					error: null,
-					node_ids: [0, 4],
-					params: {},
-					route: {"id":"/"},
-					data: [null,null],
-					form: null
-				},
-				paths: {"base":"","assets":""},
-				target: document.querySelector('[data-sveltekit-hydrate="1nf9btt"]').parentNode,
-				version: "1701110562680"
-			});
-		</script>
-	</div>
+					Promise.all([
+						import("./_app/immutable/entry/start.0c96987a.js"),
+						import("./_app/immutable/entry/app.52f561da.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element, {
+							node_ids: [0, 4],
+							data,
+							form: null,
+							error: null
+						});
+					});
+				}
+			</script>
+		</div>
 	</body>
 </html>
 

@@ -5,68 +5,53 @@
 		<link rel="icon" href="./favicon.png" />
 		<meta name="viewport" content="width=device-width" />
 		<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
-		<meta http-equiv="content-security-policy" content="">
-		<link href="./_app/immutable/assets/GetUserData-80957b2c.css" rel="stylesheet">
-		<link href="./_app/immutable/assets/_page-e344fce4.css" rel="stylesheet">
-		<link rel="modulepreload" href="./_app/immutable/start-6329b8de.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/index-69c26055.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/singletons-f4d3c52d.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/preload-helper-b21cceae.js">
-		<link rel="modulepreload" href="./_app/immutable/components/pages/_layout.svelte-290a11ec.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/stores-8f690e45.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/stores-9a814c3a.js">
-		<link rel="modulepreload" href="./_app/immutable/modules/pages/_layout.js-7b9cbfbc.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/_layout-8d2a742b.js">
-		<link rel="modulepreload" href="./_app/immutable/components/pages/2022/_page.svelte-fdb8e3d0.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/PuzzleList-d716bff7.js"><title>2021 Day 1 - Emily's Advent of Code</title><!-- HEAD_svelte-1uo06u1_START --><!-- HEAD_svelte-1uo06u1_END -->
+		
+		<link href="./_app/immutable/assets/GetUserData.968c560a.css" rel="stylesheet">
+		<link href="./_app/immutable/assets/_page.e344fce4.css" rel="stylesheet">
+		<link rel="modulepreload" href="./_app/immutable/entry/start.0c96987a.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/scheduler.82952e60.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/singletons.82bc2dd6.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index.efdf3441.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/app.52f561da.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/preload-helper.a4192956.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index.4f02d16c.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/0.ff9db1bd.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/stores.43cf0ff8.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/stores.7b94593c.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/7.ebcfb3cc.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/PuzzleList.5222e635.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/each.e59479a4.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/pages.8ae9830a.js"><title>2021 Day 1 - Emily's Advent of Code</title><!-- HEAD_svelte-1uo06u1_START --><!-- HEAD_svelte-1uo06u1_END -->
 	</head>
 	<body>
-		<div>
+		<div>     <header><h1 style="color: #e3e3e3; margin-bottom: 0.2em; margin-top: 0.2em;" data-svelte-h="svelte-11nbxet">Emily&#39;s Advent of Code</h1> <a href="/" data-svelte-h="svelte-18rze8u">[home]</a> <a href="https://github.com/emilyhunt/advent-of-code">[repo]</a> <a href="https://github.com/emilyhunt/advent-of-code/tree/main/src/routes/2022/%2Bpage.svelte">[page source code]</a></header> <p data-svelte-h="svelte-1ga2bgr">Oh no! We&#39;ve only got 25 days until Christmas and Santa&#39;s reindeer need enough star fruit snacks to help them deliver 
+  presents. Can we explore the jungle and retrieve enough star fruit snacks to save Christmas?!?</p> <img src="https://i.giphy.com/media/DGRFeXQGFeDf0tBOuv/giphy-downsized-large.gif" alt="A Christmas star!" height="200"> <p data-svelte-h="svelte-1fblnb7">Below are all attempted solutions for 2022.</p>    <ul><li><a href="/2022/day/10">[day 10] Cathode-Ray Tube</a> </li><li><a href="/2022/day/11">[day 11] Monkey in the Middle</a> </li><li><a href="/2022/day/12">[day 12] Hill Climbing Algorithm</a> </li><li><a href="/2022/day/13">[day 13] Distress Signal</a> </li><li><a href="/2022/day/14">[day 14] Regolith Reservoir</a> </li><li><a href="/2022/day/15">[day 15] Beacon Exclusion Zone</a> </li><li><a href="/2022/day/16">[day 16] Proboscidea Volcanium</a> </li><li><a href="/2022/day/17">[day 17] Pyroclastic Flow</a> </li><li><a href="/2022/day/18">[day 18] Boiling Boulders</a> </li><li><a href="/2022/day/19">[day 19] Not Enough Minerals</a> </li><li><a href="/2022/day/20">[day 20] Grove Positioning System</a> </li><li><a href="/2022/day/21">[day 21] Monkey Math</a> </li><li><a href="/2022/day/22">[day 22] Monkey Map</a> </li><li><a href="/2022/day/23">[day 23] Unstable Diffusion</a> </li><li><a href="/2022/day/24">[day 24] Blizzard Basin</a> </li><li><a href="/2022/day/25">[day 25] Full of Hot Air</a> </li><li><a href="/2022/day/01">[day 01] Calorie Counting</a> </li><li><a href="/2022/day/02">[day 02] Rock Paper Scissors</a> </li><li><a href="/2022/day/03">[day 03] Rucksack Reorganization</a> </li><li><a href="/2022/day/04">[day 04] Camp Cleanup</a> </li><li><a href="/2022/day/05">[day 05] Supply Stacks</a> </li><li><a href="/2022/day/06">[day 06] Tuning Trouble</a> </li><li><a href="/2022/day/07">[day 07] No Space Left On Device</a> </li><li><a href="/2022/day/08">[day 08] Treetop Tree House</a> </li><li><a href="/2022/day/09">[day 09] Rope Bridge</a> </li></ul>   
+			
+			<script>
+				{
+					__sveltekit_8at1yu = {
+						base: new URL(".", location).pathname.slice(0, -1),
+						env: {}
+					};
 
+					const element = document.currentScript.parentElement;
 
+					const data = [null,null];
 
-
-
-
-<header><h1 style="color: #e3e3e3; margin-bottom: 0.2em; margin-top: 0.2em;">Emily&#39;s Advent of Code</h1>
-
-    <a href="/">[home]</a> <a href="https://github.com/emilyhunt/advent-of-code">[repo]</a> <a href="https://github.com/emilyhunt/advent-of-code/tree/main/src/routes/2022/%2Bpage.svelte">[page source code]</a></header>
-
-<p>Oh no! We&#39;ve only got 25 days until Christmas and Santa&#39;s reindeer need enough star fruit snacks to help them deliver 
-  presents. Can we explore the jungle and retrieve enough star fruit snacks to save Christmas?!?
-</p>
-
-<img src="https://i.giphy.com/media/DGRFeXQGFeDf0tBOuv/giphy-downsized-large.gif" alt="A Christmas star!" height="200">
-
-<p>Below are all attempted solutions for 2022.</p>
-
-
-
-
-    <p>Generating list of puzzles...</p>
-
-
-
-		<script type="module" data-sveltekit-hydrate="1i7nv4h">
-			import { start } from "./_app/immutable/start-6329b8de.js";
-
-			start({
-				env: {},
-				hydrate: {
-					status: 200,
-					error: null,
-					node_ids: [0, 7],
-					params: {},
-					route: {"id":"/2022"},
-					data: [null,null],
-					form: null
-				},
-				paths: {"base":"","assets":""},
-				target: document.querySelector('[data-sveltekit-hydrate="1i7nv4h"]').parentNode,
-				version: "1701110562680"
-			});
-		</script>
-	</div>
+					Promise.all([
+						import("./_app/immutable/entry/start.0c96987a.js"),
+						import("./_app/immutable/entry/app.52f561da.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element, {
+							node_ids: [0, 7],
+							data,
+							form: null,
+							error: null
+						});
+					});
+				}
+			</script>
+		</div>
 	</body>
 </html>
 

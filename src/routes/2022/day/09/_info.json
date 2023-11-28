@@ -1,0 +1,11 @@
+{
+    "title": "Rope Bridge",
+    "day": "09",
+    "year": "2022",
+    "description": "We need to cross a rope bridge by understanding rope physics! A cool puzzle all about moving things by using a few basic rules.",
+    "longRuntime": false,
+    "result1": "Number of unique locations tail visited",
+    "result2": "Number of unique locations tail visited",
+    "keywords": ["arrays", "objects", "for", "for..of", "while", "coordinates", "movement"],
+    "visible": true
+}

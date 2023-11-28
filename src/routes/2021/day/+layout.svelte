@@ -1,5 +1,6 @@
 <script>
-    import { metadata, pageName } from '$lib/stores';
+    import { metadata } from '$lib/pages';
+    import { pageName } from '$lib/stores';
     import { page } from '$app/stores';
 
     function getDayYearFromPath(basePath) {

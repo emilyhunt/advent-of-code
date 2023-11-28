@@ -1,19 +1,6 @@
 <script context="module">
-    // The following should be edited for every puzzle, and includes
-    // metadata on this page accessible across the whole site.
-    export const myMetadata = {
-        title: "Monkey in the Middle",
-        day: "11",  // Day, as string
-        year: "2022",  // Year, as string
-        description: "Some monkeys have stolen our stuff! Can we get it back? This puzzle was ROUGH. It took me so "
-                     + "long to see how to solve part 2, and I had soooo many JS issues because I'm new to JS classes. "
-                     + "Arrghh.",
-        longRuntime: false,  // Warning for if the page takes a while to run (> 1 second)
-        result1: "Monkey Business score",  // Text to display part 1 result with
-        result2: "Monkey Business score",  // Text to display part 2 result with
-        keywords: ["TODO: COMMENT CODE",],  // General keywords about the code used
-        visible: true,  // Whether or not to display in menus
-    };
+    import * as _info from "./_info.json";
+    export const myMetadata = _info;
 </script>
 
 <script>

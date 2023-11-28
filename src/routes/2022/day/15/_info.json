@@ -1,0 +1,11 @@
+{
+    "title": "Beacon Exclusion Zone",
+    "day": "15",
+    "year": "2022",
+    "description": "Our sensors are picking up multiple beacons, but none of them are the beacon that we're looking for. Can we find the only valid location? (This one was HARD.)",
+    "longRuntime": false,
+    "result1": "Number of full slots on row",
+    "result2": "Tuning frequency",
+    "keywords": ["sets", "classes", "arrays", "geometry", "ranges", "difficult"],
+    "visible": true
+}

@@ -1,18 +1,6 @@
 <script context="module">
-    // The following should be edited for every puzzle, and includes
-    // metadata on this page accessible across the whole site.
-    export const myMetadata = {
-        title: "Cathode-Ray Tube",
-        day: "10",  // Day, as string
-        year: "2022",  // Year, as string
-        description: "The screen on our communicator is broken! Let's fix it. This was my first time using classes in "
-                     + "Javascript! I used 'self' instead of 'this' SO MANY TIMES.",
-        longRuntime: false,  // Warning for if the page takes a while to run (> 1 second)
-        result1: "Sum of all signal strengths",  // Text to display part 1 result with
-        result2: "Screen output",  // Text to display part 2 result with
-        keywords: ["arrays", "classes", "custom output", "for", "while"],  // General keywords about the code used
-        visible: true,  // Whether or not to display in menus
-    };
+    import * as _info from "./_info.json";
+    export const myMetadata = _info;
 </script>
 
 <script>

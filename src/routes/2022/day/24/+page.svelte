@@ -1,17 +1,6 @@
 <script context="module">
-    // The following should be edited for every puzzle, and includes
-    // metadata on this page accessible across the whole site.
-    export const myMetadata = {
-        title: "Blizzard Basin",
-        day: "24",  // Day, as string
-        year: "2022",  // Year, as string
-        description: "We need to get through a blizzard to get to the extraction point! This was yet another fun adventure in searches. My solution could probably be a bit quicker if it was less object-oriented, though I really like how readable that makes it.",
-        longRuntime: false,  // Warning for if the page takes a while to run (> 1 second)
-        result1: "Shortest route to end",  // Text to display part 1 result with
-        result2: "Shortest route from start, to end, to start",  // Text to display part 2 result with
-        keywords: ["TODO: COMMENT", "TODO: OPTIMISE", "object oriented", "bfs", "cyclical"],  // General keywords about the code used
-        visible: true,  // Whether or not to display in menus
-    };
+    import * as _info from "./_info.json";
+    export const myMetadata = _info;
 </script>
 
 <script>

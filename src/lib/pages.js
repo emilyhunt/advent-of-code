@@ -29,9 +29,10 @@
     return paths;
 }
 
-export async function loadPageMetadata(year, day) {
+async function loadPageMetadata(year, day) {
     //console.log(year, day);
     let { myMetadata } = await import(`./../routes/20${year}/day/${day}/+page.svelte`);
+    // let myMetadata = await import(`./../routes/20${year}/day/${day}/_info.json`, {assert: { type: "json" }});
     //let { metadata } = await import(`../routes/2021/01/+page.svelte`);
     //console.log(year, day, "done");
     return myMetadata;
@@ -58,18 +59,26 @@ export function generateMetadata () {
     // Add href values and write
     let metadataToWrite = {};
 
-    for (let miniMetadata of metadataArray) {
-        // Add more information
-        miniMetadata["href"] = `/${miniMetadata.year}/day/${miniMetadata.day}`
-
-        // Save to the main metadata object
-        if (!(miniMetadata.year in metadataToWrite)) { metadataToWrite[miniMetadata.year] = {}; }
-        metadataToWrite[miniMetadata.year][miniMetadata.day] = miniMetadata;
-    }
+    const awaitStuff = async () => {
+        let finalMetadata = await metadataArray;
+        for (let miniMetadata of finalMetadata) {
+            // Add more information
+            const href = `/${miniMetadata.year}/day/${miniMetadata.day}`
+    
+            // Save to the main metadata object
+            if (!(miniMetadata.year in metadataToWrite)) { metadataToWrite[miniMetadata.year] = {}; }
+            metadataToWrite[miniMetadata.year][miniMetadata.day] = JSON.parse(JSON.stringify(miniMetadata));
+            metadataToWrite[miniMetadata.year][miniMetadata.day]["href"] = href;
+        }
+    };
+    awaitStuff();
 
     return metadataToWrite;
 
 }
+
+export const metadata = generateMetadata();
+console.log(metadata)
 
 // export function getMetadata () {
 //     console.log("generated", metadata);

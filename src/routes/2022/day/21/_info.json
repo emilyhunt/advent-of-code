@@ -1,0 +1,11 @@
+{
+    "title": "Monkey Math",
+    "day": "21",
+    "year": "2022",
+    "description": "Oh no, the monkeys are back! Now for a fun adventure in doing some math operations.",
+    "longRuntime": false,
+    "result1": "Value root will get",
+    "result2": "Required value to shout",
+    "keywords": ["nerdamer.js", "symbolic maths", "TODO: COMMENT"],
+    "visible": true
+}

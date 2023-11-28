@@ -1,5 +1,5 @@
 <script>
-    import { metadata } from '$lib/stores';
+    import { metadata } from '$lib/pages';
 
     export let yearFilter = null;
     //export let day = "";
@@ -8,6 +8,7 @@
     export let dateAscending = true;
     export let format = "year day title";
     let pagesToList = Object();
+    // let pagesOrder = [];
 
     function listFormatter (key) {
         if (format === "year day title") {
@@ -19,12 +20,9 @@
         }
     }
 
-    function populateList() {
+    function populateList(yearFilter, keywordsFilter, renderOnlyVisible, dateAscending) {
         // Ensure the metadata store has been setup and get a list of all possible puzzles
-        // await initMetadata();
-        console.log("hi")
-        
-
+        // await initMetadata();       
         // We can take a shortcut if a year is specified
         if (yearFilter !== null) {
             pagesToList = metadata[yearFilter];
@@ -59,31 +57,26 @@
             }
         }
 
-        let pagesOrder = Object.keys(pagesToList);
+        let order = Object.keys(pagesToList);
         if (!dateAscending) {
-            pagesOrder = pagesOrder.reverse();
+            order = order.reverse();
         }
-        return pagesOrder;
+        return order;
     }
 
-    // onMount( async () => {
-    //     populateList()
-    // });
+    $: pagesOrder = populateList(yearFilter, keywordsFilter, renderOnlyVisible, dateAscending);
 
 </script>
 
-<!-- Get page metadata -->
-<!-- Using https://stackoverflow.com/questions/71804119/initializing-a-custom-svelte-store-asynchronously -->
+<!-- Get page metadata
+Using https://stackoverflow.com/questions/71804119/initializing-a-custom-svelte-store-asynchronously -->
 <!-- {#await populateList()}
     <p>Generating list of puzzles...</p>
 {:then} -->
 
 <!-- Content goes here -->
-<!-- {#if pagesOrder === undefined}
-    <p>ERROR: pagesOrder not defined</p>
-{:else if pagesOrder.length > 0} -->
 <ul>
-    {#each populateList() as key}
+    {#each pagesOrder as key}
         <li>
             <a href={pagesToList[key].href}>
                 {listFormatter(key)}
@@ -91,13 +84,8 @@
         </li>
     {/each}
 </ul>
-<!-- {:else}
-    <p>ERROR: no valid pages found matching filters year={yearFilter}, keywords={keywordsFilter}</p>
-{/if} -->
-
-
 
 <!-- Error handling -->
 <!-- {:catch error}
-    <p>Failed to fetch page metadata! Error: {error.message}</p> -->
-<!-- {/await} -->
+    <p>Failed to fetch page metadata! Error: {error.message}</p>
+{/await} -->

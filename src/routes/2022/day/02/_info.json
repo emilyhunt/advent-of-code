@@ -1,0 +1,11 @@
+{
+    "title": "Rock Paper Scissors",
+    "day": "02",
+    "year": "2022",
+    "description": "For some reason, we need to win the Rock Paper Scissors tournament. Suspicious...\nI wasn't especially happy with how I solved this one - I was too tired!",
+    "longRuntime": false,
+    "result1": "Score in tournament",
+    "result2": "ACTUAL score now we know what the input means",
+    "keywords": ["for..of", "logic", "string comparison"],
+    "visible": true
+}

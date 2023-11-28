@@ -35,17 +35,14 @@
     }
 
     function onExampleData () {
-        console.log("hi")
         defaultTask($currentExampleData);
     }
 
     function onDefaultData () {
-        console.log("hi")
         defaultTask($currentDefaultData);
     }
 
     function onUserData () {
-        console.log("hi")
         defaultTask(getUserData());
     }
 
@@ -83,6 +80,7 @@
             <RenderedError error={error}/>
         {:else if displayResult}
             <p>{resultText} = {result}</p>
+            <p>(ran in {runtimeToDisplay})</p>
         {:else}
             <p>(ran in {runtimeToDisplay})</p>
             <p>{resultText}:</p>

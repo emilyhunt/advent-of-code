@@ -1,0 +1,11 @@
+{
+    "title": "Calorie Counting",
+    "day": "01",
+    "year": "2022",
+    "description": "Let's count how many calories of food the Elves have!",
+    "longRuntime": false,
+    "result1": "Highest calorie count",
+    "result2": "Sum of three highest",
+    "keywords": ["arrays", "summing", "sorting", "for..of"],
+    "visible": true
+}
