@@ -1,4 +1,5 @@
 import { writable, derived, readable } from 'svelte/store';
+import { generateMetadata } from './pages';
 import { cyrb53 } from '$lib/hash'
 
 // Metadata set by a page and passed up to its layout
@@ -32,4 +33,20 @@ export let userDataHasChanged = derived(
         } else {
             return false;
         }
-    });
+});
+
+
+// Page metadata
+export let metadata = writable(Object());
+let metadataGenerated = false;
+    
+export async function initMetadata() {
+    if (!metadataGenerated) {
+        console.log("Initialising metadata...")
+        let metadataToWrite = await generateMetadata();
+        metadata.set(metadataToWrite);
+        metadataGenerated = true;
+        // console.log("- fetch completed");
+        // console.log(metadataToWrite);
+    }
+};

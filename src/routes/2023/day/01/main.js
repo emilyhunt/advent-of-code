@@ -7,7 +7,7 @@
  * @returns {any} data, preprocessed into something useful!
  */
 export function preprocessData(data) {
-	return data.trim().split('\n');
+	return data.trim();
 }
 
 /**
@@ -16,16 +16,14 @@ export function preprocessData(data) {
  * @returns {any} result of part 1
  */
 export function part1(preprocessedData) {
-	let numbersOnly = preprocessedData.map((s) => s.split("").filter((c) => !isNaN(c)).join(""))
-	let numbers = numbersOnly.map((s) => Number(s.slice(0, 1) + s.slice(-1)))
-    return numbers.reduce((partialSum, a) => partialSum + a, 0);
-}
-
-export function searchForSubstring(string, substring, reversed) {
-    if (reversed === true) {
-        return string.lastIndexOf(substring);
-    }
-    return string.indexOf(substring);
+	let numbersOnly = preprocessedData.split('\n').map((s) =>
+		s
+			.split('')
+			.filter((c) => !isNaN(c))
+			.join('')
+	);
+	let numbers = numbersOnly.map((s) => Number(s.slice(0, 1) + s.slice(-1)));
+	return numbers.reduce((partialSum, a) => partialSum + a, 0);
 }
 
 /**
@@ -34,52 +32,20 @@ export function searchForSubstring(string, substring, reversed) {
  * @returns {any} result of part 2!
  */
 export function part2(preprocessedData) {
-    const mapping = {
-        "one": "1",
-        "two": "2",
-        "three": "3",
-        "four": "4",
-        "five": "5",
-        "six": "6",
-        "seven": "7",
-        "eight": "8",
-        "nine": "9",
+	const mapping = {
+		'one': 'o1e',
+		'two': 't2o',
+		'three': 't3e',
+		'four': 'f4r',
+		'five': 'f5e',
+		'six': 's6x',
+		'seven': 's7n',
+		'eight': 'e8t',
+		'nine': 'n9e'
+	};
+    let replaced = preprocessedData;
+    for (const number in mapping) {
+        replaced = replaced.replaceAll(number, mapping[number])
     }
-    let sum = 0
-    for (const line of preprocessedData) {
-        let lowIndex = 1000;
-        let highIndex = -1;
-        let lowNumber = 0;
-        let highNumber = 0;
-
-        for (const number of Object.values(mapping)) {
-            const low = searchForSubstring(line, number);
-            if (low < lowIndex && low !== -1) {
-                lowIndex = low;
-                lowNumber = number;
-            }
-            const high = searchForSubstring(line, number, true);
-            if (high > highIndex && high !== -1) {
-                highIndex = high;
-                highNumber = number;
-            }
-        }
-
-        for (const number in mapping) {
-            const low = searchForSubstring(line, number);
-            if (low < lowIndex && low !== -1) {
-                lowIndex = low;
-                lowNumber = mapping[number];
-            }
-            const high = searchForSubstring(line, number, true);
-            if (high > highIndex && high !== -1) {
-                highIndex = high;
-                highNumber = mapping[number];
-            }
-        }
-        const num = Number(lowNumber + highNumber);
-        console.log(line, lowNumber, highNumber, num);
-        sum += num;
-    }
-	return sum;
+	return part1(replaced);
 }

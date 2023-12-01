@@ -1,5 +1,5 @@
 <script>
-    import { metadata } from '$lib/pages';
+    import { metadata, initMetadata } from '$lib/stores';
 
     export let yearFilter = null;
     //export let day = "";
@@ -8,7 +8,7 @@
     export let dateAscending = true;
     export let format = "year day title";
     let pagesToList = Object();
-    // let pagesOrder = [];
+    let pagesOrder;
 
     function listFormatter (key) {
         if (format === "year day title") {
@@ -20,17 +20,18 @@
         }
     }
 
-    function populateList(yearFilter, keywordsFilter, renderOnlyVisible, dateAscending) {
+    async function populateList() {
         // Ensure the metadata store has been setup and get a list of all possible puzzles
-        // await initMetadata();       
+        await initMetadata();
+
         // We can take a shortcut if a year is specified
         if (yearFilter !== null) {
-            pagesToList = metadata[yearFilter];
+            pagesToList = $metadata[yearFilter];
         } else {
             // Otherwise, flatten into single object containing all pages
-            for (const year in metadata) {
-                for (const day in metadata[year]) {
-                    pagesToList[year + day] = metadata[year][day]
+            for (const year in $metadata) {
+                for (const day in $metadata[year]) {
+                    pagesToList[year + day] = $metadata[year][day]
                 }
             }
         }
@@ -57,37 +58,38 @@
             }
         }
 
-        let order = Object.keys(pagesToList);
+        pagesOrder = Object.keys(pagesToList);
         if (!dateAscending) {
-            order = order.reverse();
+            pagesOrder = pagesOrder.reverse();
         }
-        return order;
     }
-
-    $: pagesOrder = populateList(yearFilter, keywordsFilter, renderOnlyVisible, dateAscending);
 
 </script>
 
-<!-- Get page metadata
-Using https://stackoverflow.com/questions/71804119/initializing-a-custom-svelte-store-asynchronously -->
-<!-- {#await populateList()}
+<!-- Get page metadata -->
+<!-- Using https://stackoverflow.com/questions/71804119/initializing-a-custom-svelte-store-asynchronously -->
+{#await populateList()}
     <p>Generating list of puzzles...</p>
-{:then} -->
+{:then}
 
 <!-- Content goes here -->
-<ul>
-    {#each pagesOrder as key}
-        <li>
-            <a href={pagesToList[key].href}>
-                {listFormatter(key)}
-            </a>
-        </li>
-    {:else}
-    <p style="color: grey;">(the list component is broken, click on a page and then click back to home to have it show...)</p>
-    {/each}
-</ul>
+{#if pagesOrder.length > 0}
+    <ul>
+        {#each pagesOrder as key}
+            <li>
+                <a href={pagesToList[key].href}>
+                    {listFormatter(key)}
+                </a>
+            </li>
+        {/each}
+    </ul>
+{:else}
+    <p>ERROR: no valid pages found matching filters year={yearFilter}, keywords={keywordsFilter}</p>
+{/if}
+
+
 
 <!-- Error handling -->
 <!-- {:catch error}
-    <p>Failed to fetch page metadata! Error: {error.message}</p>
-{/await} -->
+    <p>Failed to fetch page metadata! Error: {error.message}</p> -->
+{/await}

@@ -2,10 +2,10 @@
     "title": "The Trebuchet",
     "day": "01",
     "year": "2023",
-    "description": "There's a trebuchet! This puzzle SUCKED for day one. I did not know how to do that more nicely =(",
+    "description": "There's a trebuchet! We need to decode a code so that the elves can launch us. For Reasons.\nThis puzzle SUCKED for a day one - the trick in Part 2 was annoying!",
     "longRuntime": false,
     "result1": "Calibration number",
     "result2": "Calibration number",
-    "keywords": ["string", "regex", "search"],
+    "keywords": ["string", "replaceAll", "search", "object"],
     "visible": true
 }

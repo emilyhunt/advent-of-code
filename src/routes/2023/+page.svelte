@@ -5,12 +5,10 @@
     $pageName = "2023";
 </script>
 
-<!-- <p>
-  Stub page for when the 2023 AoC starts!
-</p> -->
+<p>Oh no! Something is wrong with global snow production, and we need to get launched into the sky (?!) to go and fix it!</p>
 
-<img src="https://i.giphy.com/media/DGRFeXQGFeDf0tBOuv/giphy-downsized-large.gif" alt="A Christmas star!" height=200>
+<img src="https://i.giphy.com/media/J5AXZK4PpCLkwHTclt/giphy.webp" alt="Ho ho ho, where is all the snow???" height=300>
 
-<p>Below are all attempted solutions for 2023.</p>
+<p>Below are all attempted puzzles for 2023.</p>
 
 <PuzzleList yearFilter={"2023"} format={"day title"}/>

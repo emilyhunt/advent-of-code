@@ -12,7 +12,7 @@
     and <a href="https://svelte.dev/">Svelte</a>.
 </p>
 
-<p>These puzzles run entirely in your web browser. Static code is hosted using GitHub Pages.</p>
+<p>These puzzles run entirely in your web browser. Static code is hosted using GitHub Pages. Every puzzle has a custom input button - so you can also try your own puzzle data on my code!</p>
 
 <img src="https://i.giphy.com/media/RdzzVrtvfqnM4/giphy.webp" alt="Cats wearing Christmas Hats" width=300>
 
@@ -22,7 +22,7 @@
 <ul>
     <li><a href="/2021">[2021] - Find the Lost Sleigh Keys</a></li>
     <li><a href="/2022">[2022] - The Magic Star Expedition</a></li>
-    <li><a href="/2023">[2023] - TBC</a></li>
+    <li><a href="/2023">[2023] - Ho Ho Ho... But Where Is All The Snow?!</a></li>
 </ul>
 
 
