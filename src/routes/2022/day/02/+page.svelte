@@ -1,16 +1,6 @@
 <script context="module">
-    export const myMetadata = {
-        title: "Rock Paper Scissors",
-        day: "02",  // Day, as string
-        year: "2022",  // Year, as string
-        description: ("For some reason, we need to win the Rock Paper Scissors tournament. Suspicious..."
-                      + "\nI wasn't especially happy with how I solved this one - I was too tired!"),
-        longRuntime: false,  // Warning for if the page takes a while to run (> 1 second)
-        result1: "Score in tournament",  // Text to display part 1 result with
-        result2: "ACTUAL score now we know what the input means",  // Text to display part 2 result with
-        keywords: ["for..of", "logic", "string comparison"],  // General keywords about the code used
-        visible: true,  // Whether or not to display in menus
-    };
+    import * as _info from "./_info.json";
+    export const myMetadata = _info;
 </script>
 
 <script>

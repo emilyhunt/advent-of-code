@@ -9,23 +9,23 @@ This site is an attempt at learning and improving my skills working with web tec
 The site is made with the web framework Svelte and built using Sveltekit. The site lives statically on GitHub pages. I might do some of the puzzles using Typescript, but I want to make sure I'm comfortable with Javascript first.
 
 ## To-do list
-### Things I should do before the end of AOC 2022
+### Things I should do
 
-* ~~Change template going forwards to use .js files for the actual code, cleaning up +page.svelte objects.~~
-* Chat about the project on Twitter
-* Throw errors at runtime in console in dev mode, or catch+throw visually on the production site (unless I can somehow find a way to show a whole stack trace, which I'd be fine with then having visually - e.g. in the result area.) If the error happens when using custom data, the site should suggest to the user that their input may be invalid.
-
-### Things I should do before attempting another AOC
-* Change page metadata to a) be stored in .JSON and b) not be a store (it doesn't change! Why is it a store!)
-* Move all pages over to the new template format and change default "page source code" link to be the folder on GitHub.
-* Improve theme and page design (just use the VS Code colours & add a width? I dunno)
+* ~~Throw errors at runtime in console in dev mode, or catch+throw visually on the production site (unless I can somehow find a way to show a whole stack trace, which I'd be fine with then having visually - e.g. in the result area.) If the error happens when using custom data, the site should suggest to the user that their input may be invalid.~~
+* ~~Change page metadata to a) be stored in .JSON and b) not be a store (it doesn't change! Why is it a store!)~~
+* Move all pages over to the new template format 
+* ~~Change default "page source code" link to be the folder on GitHub.~~
+* ~~Improve theme and page design (just use the VS Code colours & add a width? I dunno)~~
+* ~~Make a better favicon~~
+* Fix sorting issues on some year pages
+* Fix PuzzleList so it can actually work on first load
 
 ### Nice to haves
 
 * Add ~~keywords for each page~~ and a way to sort pages by keywords (e.g.: `lists`, `sorting`, etc)
 * Basic visualisation support (integrate e.g. chartjs into library stuff?)
-* Add an extra link when running in dev mode to the actual site (this would be so convenient lol)
-* Add user feedback to PuzzleList.svelte ensuring that it doesn't just show a blank when it takes a while to generate
+* ~~Add an extra link when running in dev mode to the actual site (this would be so convenient lol)~~
+* ~~Add user feedback to PuzzleList.svelte ensuring that it doesn't just show a blank when it takes a while to generate~~
 * Allow for more customisation/bindings with the Result component, which would be useful for solutions that need a visualisation
 
 ## Acknowledgements
@@ -71,6 +71,4 @@ To create a production version of the app:
 npm run build
 ```
 
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+Push this to GitHub to update the pages site. You can preview the production build locally with `npm run preview`.

@@ -1,6 +1,7 @@
 <script>
     import { currentDefaultData, currentExampleData, currentUserData, currentUserInput, runOnUserData, 
         userDataHasChanged, hashedUserInput, hashedPreviousUserInput } from "$lib/stores";
+    import RenderedError from "./RenderedError.svelte";
 
     // Functions set by user that we run here
     export let part;
@@ -13,14 +14,13 @@
     export let result = "";
     export let displayResult = true;
     export let runtimeMilliseconds = -1;
-    let runtimeSeconds = -1;
     let runtimeToDisplay = "";
-    // $: runtimeSeconds = runtimeMilliseconds / 1000;
+    let error = null;
+
     $: runtimeToDisplay = runtimeMilliseconds >= 1000 
         ? `${(runtimeMilliseconds / 1000).toFixed(3)} s` 
         : (runtimeMilliseconds === 0 ? "less than 1 ms" : `${runtimeMilliseconds} ms`);
 
-    
     /*
     Handles data logic by looking at stores and seeing which data to use, if it needs preprocessing, etc
     */
@@ -50,8 +50,15 @@
     Main function in this component; runs function part
     */
     function defaultTask (currentData) {
+        error = "";
         const startTime = Date.now();
-        result = part(currentData);
+        try {
+            result = part(currentData);
+        }
+        catch (e) {
+            error = e;
+            console.error(e);
+        }
         runtimeMilliseconds = Date.now() - startTime;
     }
 
@@ -69,7 +76,9 @@
 <!-- Only display the runtime if we've ran at least once!-->
 {#if runtimeMilliseconds !== -1}
     <div class="result">
-        {#if displayResult}
+        {#if error}
+            <RenderedError error={error}/>
+        {:else if displayResult}
             <p>{resultText} = {result}</p>
             <p>(ran in {runtimeToDisplay})</p>
         {:else}

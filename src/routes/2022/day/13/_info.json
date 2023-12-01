@@ -1,0 +1,11 @@
+{
+    "title": "Distress Signal",
+    "day": "13",
+    "year": "2022",
+    "description": "It looks like we just picked up a distress signal, but all of the packets are out of order. We need to unscramble the packets to get the information!",
+    "longRuntime": false,
+    "result1": "Sum of indices of correct packets",
+    "result2": "Product of indices of distress signals",
+    "keywords": ["TODO: COMMENT, functional, parsing, sorting, recursion"],
+    "visible": true
+}

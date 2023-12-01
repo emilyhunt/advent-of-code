@@ -1,0 +1,11 @@
+{
+    "title": "Grove Positioning System",
+    "day": "20",
+    "year": "2022",
+    "description": "We need to find where the grove of magic stars is! The explanation for this puzzle was argh.",
+    "longRuntime": false,
+    "result1": "Sum of 3 coordinates",
+    "result2": "Sum of 3 coordinates",
+    "keywords": ["TODO: OPTIMISE", "TODO: COMMENT", "modulo", "functional", "arrays"],
+    "visible": true
+}

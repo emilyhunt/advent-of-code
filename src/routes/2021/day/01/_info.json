@@ -1,0 +1,11 @@
+{
+    "title": "Sonar Sweep",
+    "day": "01",
+    "year": "2021",
+    "description": "How much does the terrain change below the ship?",
+    "longRuntime": false,
+    "result1": "Result",
+    "result2": "Result",
+    "keywords": [""],
+    "visible": true
+}

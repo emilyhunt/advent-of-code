@@ -1,0 +1,11 @@
+{
+    "title": "Full of Hot Air",
+    "day": "25",
+    "year": "2022",
+    "description": "We need to leave by hot air balloon, but this of course requires summing balanced quinary numbers. This one hit a lot of sore spots where I lack experience but was good practice!",
+    "longRuntime": false,
+    "result1": "SNAFU number",
+    "result2": "(not done yet)",
+    "keywords": ["quinary", "number system conversion", "base 5", "TODO: PART 2"],
+    "visible": true
+}

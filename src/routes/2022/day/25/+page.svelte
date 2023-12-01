@@ -1,17 +1,6 @@
 <script context="module">
-    // The following should be edited for every puzzle, and includes
-    // metadata on this page accessible across the whole site.
-    export const myMetadata = {
-        title: "Full of Hot Air",
-        day: "25",  // Day, as string
-        year: "2022",  // Year, as string
-        description: "We need to leave by hot air balloon, but this of course requires summing balanced quinary numbers. This one hit a lot of sore spots where I lack experience but was good practice!",
-        longRuntime: false,  // Warning for if the page takes a while to run (> 1 second)
-        result1: "SNAFU number",  // Text to display part 1 result with
-        result2: "(not done yet)",  // Text to display part 2 result with
-        keywords: ["quinary", "number system conversion", "base 5", "TODO: PART 2"],  // General keywords about the code used
-        visible: true,  // Whether or not to display in menus
-    };
+    import * as _info from "./_info.json";
+    export const myMetadata = _info;
 </script>
 
 <script>

@@ -1,19 +1,6 @@
 <script context="module">
-    // The following should be edited for every puzzle, and includes
-    // metadata on this page accessible across the whole site.
-    export const myMetadata = {
-        title: "No Space Left On Device",
-        day: "07",  // Day, as string
-        year: "2022",  // Year, as string
-        description: "The communication device doesn't have enough space left to install a critical update, and the "
-                     + "main character of the Advent of Code doesn't know the du command... which directory can we "
-                     + "delete to free up space?",
-        longRuntime: false,  // Warning for if the page takes a while to run (> 1 second)
-        result1: "Sum of directories smaller than threshold",  // Text to display part 1 result with
-        result2: "Size of best directory to delete",  // Text to display part 2 result with
-        keywords: ["objects", "recursion", "map", "arrays"],  // General keywords about the code used
-        visible: true,  // Whether or not to display in menus
-    };
+    import * as _info from "./_info.json";
+    export const myMetadata = _info;
 </script>
 
 <script>

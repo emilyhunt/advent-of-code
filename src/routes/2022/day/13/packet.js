@@ -2,6 +2,7 @@
 
 
 export function parsePacketString(packetString) {
+    console.log(packetString)
     return JSON.parse(packetString.trim());
 }
 

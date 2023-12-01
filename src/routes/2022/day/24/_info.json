@@ -1,0 +1,11 @@
+{
+    "title": "Blizzard Basin",
+    "day": "24",
+    "year": "2022",
+    "description": "We need to get through a blizzard to get to the extraction point! This was yet another fun adventure in searches. My solution could probably be a bit quicker if it was less object-oriented, though I really like how readable that makes it.",
+    "longRuntime": false,
+    "result1": "Shortest route to end",
+    "result2": "Shortest route from start, to end, to start",
+    "keywords": ["TODO: COMMENT", "TODO: OPTIMISE", "object oriented", "bfs", "cyclical"],
+    "visible": true
+}

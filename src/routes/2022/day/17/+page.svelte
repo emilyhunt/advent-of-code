@@ -1,17 +1,6 @@
 <script context="module">
-    // The following should be edited for every puzzle, and includes
-    // metadata on this page accessible across the whole site.
-    export const myMetadata = {
-        title: "Pyroclastic Flow",
-        day: "17",  // Day, as string
-        year: "2022",  // Year, as string
-        description: "Puzzle description",
-        longRuntime: true,  // Warning for if the page takes a while to run (> 1 second)
-        result1: "Result",  // Text to display part 1 result with
-        result2: "Result",  // Text to display part 2 result with
-        keywords: ["TODO: OPTIMISE", "TODO: WRITE DESC"],  // General keywords about the code used
-        visible: true,  // Whether or not to display in menus
-    };
+    import * as _info from "./_info.json";
+    export const myMetadata = _info;
 </script>
 
 <script>

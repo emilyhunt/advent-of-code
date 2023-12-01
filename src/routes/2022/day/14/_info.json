@@ -1,0 +1,11 @@
+{
+    "title": "Regolith Reservoir",
+    "day": "14",
+    "year": "2022",
+    "description": "We're trapped in a cave and it's filling up with sand! How long will it take until we're submerged?",
+    "longRuntime": false,
+    "result1": "Sand dropped until it flows into void",
+    "result2": "Sand dropped until cave is full",
+    "keywords": ["classes", "Coords2D", "GridSpec", "grids", "arrays", "while", "for..of", "for"],
+    "visible": true
+}

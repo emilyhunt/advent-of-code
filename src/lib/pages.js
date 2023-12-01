@@ -29,41 +29,56 @@
     return paths;
 }
 
-export async function loadPageMetadata(year, day) {
+async function loadPageMetadata(year, day) {
     //console.log(year, day);
     let { myMetadata } = await import(`./../routes/20${year}/day/${day}/+page.svelte`);
+    // let myMetadata = await import(`./../routes/20${year}/day/${day}/_info.json`, {assert: { type: "json" }});
     //let { metadata } = await import(`../routes/2021/01/+page.svelte`);
     //console.log(year, day, "done");
     return myMetadata;
 };
 
+
+async function getMetadataArray (allPuzzleLinks) {
+    return await Promise.all(allPuzzleLinks.map(x => loadPageMetadata(x.slice(3, 5), x.slice(-2))));
+}
+
+
 /**
  * Generates a metadata object covering all valid puzzles to display in menus, etc.
  */
-export async function generateMetadata () {
+export function generateMetadata () {
     
     const allPuzzles = import.meta.glob("../routes/20*/day/[!template]*/+page.svelte");
     const allPuzzleLinks = getPages("", allPuzzles);
     
     // Grab all metadata!
     // See https://stackoverflow.com/questions/35612428/call-async-await-functions-in-parallel
-    let metadataArray = await Promise.all(allPuzzleLinks.map(x => loadPageMetadata(x.slice(3, 5), x.slice(-2))));    
+    let metadataArray = getMetadataArray(allPuzzleLinks);
     
     // Add href values and write
     let metadataToWrite = {};
 
-    for (let miniMetadata of metadataArray) {
-        // Add more information
-        miniMetadata["href"] = `/${miniMetadata.year}/day/${miniMetadata.day}`
-
-        // Save to the main metadata object
-        if (!(miniMetadata.year in metadataToWrite)) { metadataToWrite[miniMetadata.year] = {}; }
-        metadataToWrite[miniMetadata.year][miniMetadata.day] = miniMetadata;
-    }
+    const awaitStuff = async () => {
+        let finalMetadata = await metadataArray;
+        for (let miniMetadata of finalMetadata) {
+            // Add more information
+            const href = `/${miniMetadata.year}/day/${miniMetadata.day}`
+    
+            // Save to the main metadata object
+            if (!(miniMetadata.year in metadataToWrite)) { metadataToWrite[miniMetadata.year] = {}; }
+            metadataToWrite[miniMetadata.year][miniMetadata.day] = JSON.parse(JSON.stringify(miniMetadata));
+            metadataToWrite[miniMetadata.year][miniMetadata.day]["href"] = href;
+        }
+    };
+    awaitStuff();
 
     return metadataToWrite;
 
 }
+
+export const metadata = generateMetadata();
+console.log(metadata)
 
 // export function getMetadata () {
 //     console.log("generated", metadata);

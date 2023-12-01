@@ -1,10 +1,12 @@
 <script>
     import { page } from '$app/stores';
-    import { pageName } from '$lib/stores'
+    import { pageName } from '$lib/stores';
+    import { dev } from '$app/environment';
     
     // Repo base link and link to the source code
     const repo_link = 'https://github.com/emilyhunt/advent-of-code';
-    $: source_link = repo_link + '/tree/main/src/routes' + $page.url.pathname + "/%2Bpage.svelte";
+    $: source_link = repo_link + '/tree/main/src/routes' + $page.url.pathname; // + "/%2Bpage.svelte";
+    $: website_link = "https://aoc.emilydoesastro.com/" + $page.url.pathname;
 
     // Set document title
     $: title = $pageName === "none" ? "Emily's Advent of Code" : `${$pageName} - Emily's Advent of Code`;
@@ -21,7 +23,7 @@
 <header>
     <h1 style="color: #e3e3e3; margin-bottom: 0.2em; margin-top: 0.2em;">Emily's Advent of Code</h1>
 
-    <a href="/">[home]</a> <a href="{repo_link}">[repo]</a> <a href="{source_link}">[page source code]</a>
+    <a href="/">[home]</a> <a href="{repo_link}">[repo]</a> <a href="{source_link}">[page source code]</a> {#if dev} <a href="{website_link}" style="color: red">[DEV: view on site]</a> {/if}
 </header>
 
 <slot></slot>

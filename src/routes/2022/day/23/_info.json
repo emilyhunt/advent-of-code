@@ -1,0 +1,11 @@
+{
+    "title": "Unstable Diffusion",
+    "day": "23",
+    "year": "2022",
+    "description": "The Elves need to plant some star fruit plants ASAP! How long will it take them to move out? This puzzle gave me serious undergrad C++ diffusion coursework vibes. (Except JS is slower)",
+    "longRuntime": true,
+    "result1": "Number of empty spaces in square after 10 rounds",
+    "result2": "Number of rounds",
+    "keywords": ["TODO: OPTIMISE", "diffusion", "simulation", "object oriented"],
+    "visible": true
+}

@@ -1,0 +1,11 @@
+{
+    "title": "Rucksack Reorganization",
+    "day": "03",
+    "year": "2022",
+    "description": "We need to help the Elves reorganize their rucksacks! A fun puzzle on string operations. I really like the ascii code part of my solutions.",
+    "longRuntime": false,
+    "result1": "Priority of duplicated items",
+    "result2": "Priority of Elf group badges",
+    "keywords": ["for", "for..in", "strings", "ascii code", "arrays"],
+    "visible": true
+}

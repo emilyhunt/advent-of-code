@@ -1,30 +1,8 @@
 import { writable, derived, readable } from 'svelte/store';
 import { cyrb53 } from '$lib/hash'
-import { generateMetadata } from './pages';
 
 // Metadata set by a page and passed up to its layout
 export let pageName = writable("none");
-
-// export let metadata = writable({generated: false});
-// export let metadata = readable(
-//     new Object(), 
-//     function start(set) {
-//         set(generateMetadata());
-//         return function stop() {};
-//     }
-// );
-export let metadata = writable(Object());
-let metadataGenerated = false;
-
-export async function initMetadata() {
-    if (!metadataGenerated) {
-        console.log("Initialising metadata...")
-        let metadataToWrite = await generateMetadata();
-        metadata.set(metadataToWrite);
-        // console.log("- fetch completed");
-        // console.log(metadataToWrite);
-    }
-};
 
 // Current default data
 export let currentDefaultData = writable("");

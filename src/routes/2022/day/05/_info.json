@@ -1,0 +1,11 @@
+{
+    "title": "Supply Stacks",
+    "day": "05",
+    "year": "2022",
+    "description": "The Elves need to get crates of supplies off of their boat! But after re-organising the hold, which crates will appear on top and be accessible first?",
+    "longRuntime": false,
+    "result1": "Final top crate (moving one at a time)",
+    "result2": "Final top crate (moving multiple at a time)",
+    "keywords": ["challenging input", "for..of", "arrays", "objects"],
+    "visible": true
+}

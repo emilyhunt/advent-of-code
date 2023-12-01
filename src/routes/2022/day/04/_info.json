@@ -1,0 +1,11 @@
+{
+    "title": "Camp Cleanup",
+    "day": "04",
+    "year": "2022",
+    "description": "The Elves' campsite needs cleaning up, but some of their work has been duplicated.",
+    "longRuntime": false,
+    "result1": "Pairs that fully overlap their partner",
+    "result2": "Pairs that partly overlap their partner",
+    "keywords": ["comparison", "for..of", "logic", "map", "split"],
+    "visible": true
+}

@@ -1,0 +1,11 @@
+{
+    "title": "Boiling Boulders",
+    "day": "18",
+    "year": "2022",
+    "description": "There's lava and it's flowing! But how much surface area does it have? I did a really cool solution with sets! (Though I should try using integers instead of strings for speed)",
+    "longRuntime": false,
+    "result1": "Total surface area",
+    "result2": "Total exposed surface area",
+    "keywords": ["sets", "functional", "3D", "voxels", "BFS"],
+    "visible": true
+}

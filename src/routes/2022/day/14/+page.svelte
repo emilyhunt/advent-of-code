@@ -1,18 +1,6 @@
 <script context="module">
-    // The following should be edited for every puzzle, and includes
-    // metadata on this page accessible across the whole site.
-    export const myMetadata = {
-        title: "Regolith Reservoir",
-        day: "14",  // Day, as string
-        year: "2022",  // Year, as string
-        description: "We're trapped in a cave and it's filling up with sand! How long will it take until we're "
-                     + "submerged?",
-        longRuntime: false,  // Warning for if the page takes a while to run (> 1 second)
-        result1: "Sand dropped until it flows into void",  // Text to display part 1 result with
-        result2: "Sand dropped until cave is full",  // Text to display part 2 result with
-        keywords: ["classes", "Coords2D", "GridSpec", "grids", "arrays", "while", "for..of", "for",],  // General keywords about the code used
-        visible: true,  // Whether or not to display in menus
-    };
+    import * as _info from "./_info.json";
+    export const myMetadata = _info;
 </script>
 
 <script>

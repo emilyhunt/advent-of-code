@@ -1,0 +1,11 @@
+{
+    "title": "Treetop Tree House",
+    "day": "08",
+    "year": "2022",
+    "description": "The Tree Elves want a treetop tree house that they can then be treated to. Therefore, this test tries to think of the best tree for a treetop tree house!",
+    "longRuntime": false,
+    "result1": "Number of trees visible from an edge",
+    "result2": "Best scenic score of any tree",
+    "keywords": ["while", "for", "arrays (2D)", "iteration"],
+    "visible": true
+}

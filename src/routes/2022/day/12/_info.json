@@ -1,0 +1,11 @@
+{
+    "title": "Hill Climbing Algorithm",
+    "day": "12",
+    "year": "2022",
+    "description": "We need to find the shortest path up the hill to get the best signal for our communicator! It took me SO LONG to implement Djikstra's algorithm for this one, honestly I should have just brute forced it. But oh well, it was fun =) I feel I understand JS classes better now.",
+    "longRuntime": false,
+    "result1": "Length of shortest path to highest point",
+    "result2": "Length of shortest path from lowest point to highest",
+    "keywords": ["sets", "arrays", "classes", "Djikstra's algorithm", "pathfinding"],
+    "visible": true
+}
