@@ -1,0 +1,11 @@
+{
+    "title": "Cube Conundrum",
+    "day": "02",
+    "year": "2023",
+    "description": "This puzzle was a close one! All of the talk about pulling red, green, and blue cubes out of a bag had me CONVINCED that this was going to be about binomial probabilities. Flashbacks to high school stats class ensued... thankfully, it wasn't 😅",
+    "longRuntime": false,
+    "result1": "Sum of good IDs",
+    "result2": "Sum of game powers",
+    "keywords": ["string", "array", "for..in", "for..of", "functional"],
+    "visible": true
+}

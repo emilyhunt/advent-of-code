@@ -22,8 +22,8 @@
     const numberOfPages = Object.keys(import.meta.glob("./[!template]**/+page.svelte")).length;
 
     let day = "02";
-    let year = "2023";
-    let yearPath = '/2023'; 
+    let year = "2021";
+    let yearPath = '/2021'; 
     let previousDay = '01'; 
     let nextDay = '03';
 
