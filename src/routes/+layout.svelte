@@ -23,7 +23,7 @@
 <header>
     <h1 style="color: #e3e3e3; margin-bottom: 0.2em; margin-top: 0.2em;">Emily's Advent of Code</h1>
 
-    <a href="/">[home]</a> <a rel="external" href="{repo_link}">[repo]</a> <a rel="external" href="{source_link}">[page source code]</a> {#if dev} <a rel="external" href="{website_link}" style="color: red">[DEV: view on site]</a> {/if}
+    <a href="/">[home]</a> <a rel="external" target="_blank" href="{repo_link}">[repo]</a> <a rel="external" target="_blank" href="{source_link}">[page source code]</a> {#if dev} <a rel="external" target="_blank" href="{website_link}" style="color: red">[DEV: view on site]</a> {/if}
 </header>
 
 <slot></slot>
