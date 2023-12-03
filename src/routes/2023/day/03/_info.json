@@ -1,11 +1,11 @@
 {
-    "title": "Puzzle Title",
+    "title": "Gear Ratios",
     "day": "03",
     "year": "2023",
-    "description": "Description",
+    "description": "We need to get to the water source, but our gondola is broken (Part 1) and slow (Part 2). Let's fix it... with code!",
     "longRuntime": false,
     "result1": "Result",
     "result2": "Result",
-    "keywords": [""],
-    "visible": false
+    "keywords": ["classes", "for..of", "coordinates"],
+    "visible": true
 }
