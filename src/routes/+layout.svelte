@@ -5,7 +5,7 @@
     
     // Repo base link and link to the source code
     const repo_link = 'https://github.com/emilyhunt/advent-of-code';
-    $: source_link = (repo_link + '/tree/main/src/routes' + $page.url.pathname).replaceAll("//", "/"); // + "/%2Bpage.svelte";
+    $: source_link = (repo_link + '/tree/main/src/routes' + $page.url.pathname).replaceAll("//", "/").replaceAll("aoc.emilydoesastro.com/", ""); // + "/%2Bpage.svelte";
     $: website_link = ("https://aoc.emilydoesastro.com/" + $page.url.pathname).replaceAll("//", "/");
 
     // Set document title
