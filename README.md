@@ -11,35 +11,24 @@ The site is made with the web framework Svelte and built using Sveltekit. The si
 ## To-do list
 ### Things I should do
 
-* ~~Throw errors at runtime in console in dev mode, or catch+throw visually on the production site (unless I can somehow find a way to show a whole stack trace, which I'd be fine with then having visually - e.g. in the result area.) If the error happens when using custom data, the site should suggest to the user that their input may be invalid.~~
-* ~~Change page metadata to a) be stored in .JSON and b) not be a store (it doesn't change! Why is it a store!)~~
-* Move all pages over to the new template format 
-* ~~Change default "page source code" link to be the folder on GitHub.~~
-* ~~Improve theme and page design (just use the VS Code colours & add a width? I dunno)~~
-* ~~Make a better favicon~~
+* Add a way to view code on the page, e.g. with a toggle
 * Fix sorting issues on some year pages
-* Fix PuzzleList so it can actually work on first load
-
-### Nice to haves
-
 * Add ~~keywords for each page~~ and a way to sort pages by keywords (e.g.: `lists`, `sorting`, etc)
-* Basic visualisation support (integrate e.g. chartjs into library stuff?)
-* ~~Add an extra link when running in dev mode to the actual site (this would be so convenient lol)~~
-* ~~Add user feedback to PuzzleList.svelte ensuring that it doesn't just show a blank when it takes a while to generate~~
+
+_Low-priority:_
 * Allow for more customisation/bindings with the Result component, which would be useful for solutions that need a visualisation
+* Basic visualisation support (integrate e.g. chartjs into library stuff?)
 
 ## Acknowledgements
 * ric2b's [2021 Advent of Code site](https://github.com/ric2b/advent-of-code/tree/master/2021) was used as inspiration
 * Glench's [sveltekit GitHub pages template](https://github.com/Glench/sveltekit-github-pages-template) was used to work out how to get this working with GitHub Pages
 
 
-
-
 ## Instructions for use
 
 ### Developing
 
-1. Ensure you have node.js installed (I recommend node.js v18, which gives you npm v8, which is required!)
+1. Ensure you have node.js installed, _and_ a high enough version of it (I recommend node.js v18 - which gives you npm v8, which is required!)
 
 2. Clone the project with:
 
