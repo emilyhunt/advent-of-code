@@ -1,0 +1,11 @@
+{
+    "title": "Puzzle Title",
+    "day": "22",
+    "year": "2023",
+    "description": "Description",
+    "longRuntime": false,
+    "result1": "Result",
+    "result2": "Result",
+    "keywords": [""],
+    "visible": false
+}
