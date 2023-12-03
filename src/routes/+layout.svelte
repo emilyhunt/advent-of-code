@@ -5,7 +5,7 @@
     
     // Repo base link and link to the source code
     const repo_link = 'https://github.com/emilyhunt/advent-of-code';
-    $: source_link = (repo_link + '/tree/main/src/routes' + $page.url.pathname).replaceAll("//", "/"); // + "/%2Bpage.svelte";
+    $: source_link = (repo_link + '/tree/main/src/routes' + $page.url.pathname).replaceAll("//", "/").slice(0, -1); // + "/%2Bpage.svelte";
     $: website_link = ("https://aoc.emilydoesastro.com/" + $page.url.pathname).replaceAll("//", "/");
 
     // Set document title
@@ -23,7 +23,7 @@
 <header>
     <h1 style="color: #e3e3e3; margin-bottom: 0.2em; margin-top: 0.2em;">Emily's Advent of Code</h1>
 
-    <a href="/">[home]</a> <a rel="external" data-sveltekit-reload href="{repo_link}">[repo]</a> <a rel="external" data-sveltekit-reload href="{source_link}">[page source code]</a> {#if dev} <a rel="external" href="{website_link}" style="color: red">[DEV: view on site]</a> {/if}
+    <a href="/">[home]</a> <a rel="external" href="{repo_link}">[repo]</a> <a rel="external" href="{source_link}">[page source code]</a> {#if dev} <a rel="external" href="{website_link}" style="color: red">[DEV: view on site]</a> {/if}
 </header>
 
 <slot></slot>
