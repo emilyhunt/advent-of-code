@@ -1,11 +1,11 @@
 {
-    "title": "Puzzle Title",
+    "title": "Scratchcards",
     "day": "04",
     "year": "2023",
-    "description": "Description",
-    "longRuntime": false,
-    "result1": "Result",
-    "result2": "Result",
-    "keywords": [""],
-    "visible": false
+    "description": "To get to the water island, we need to help an elf who has (a shelf of) many scratchcards. (The plot thickens!)\nHow much did the elf win?",
+    "longRuntime": true,
+    "result1": "Points",
+    "result2": "Total Scratchcards",
+    "keywords": ["TODO: OPTIMISE"],
+    "visible": true
 }
