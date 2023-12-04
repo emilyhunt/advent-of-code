@@ -1,5 +1,29 @@
 /* Primary functions for solving the puzzle live here. */
 
+function getID(string) {
+	return Number(string.split(' ').slice(-1)[0])
+}
+
+function getNumbers(string) {
+	return string
+		.trim()
+		.split(' ')
+		.filter((n) => n !== '')
+		.map((n) => Number(n));
+}
+
+
+function scratchcardStringToObject(string) {
+	const [idPart, scratchcardPart] = string.split(':');
+	const [myNumbers, winningNumbers] = scratchcardPart.split('|');
+	return {
+		id: getID(idPart),
+		numbers: getNumbers(myNumbers),
+		winningNumbers: new Set(getNumbers(winningNumbers))
+	};
+}
+
+
 /**
  * Preprocessor applied to all possible inputs.
  * Should be a quick function that does useful setup steps compatible with parts 1 and 2.
@@ -8,31 +32,38 @@
  */
 export function preprocessData(data) {
 	const lines = data.trim().split('\n');
-	let cards = [];
+	return lines.map((card) => scratchcardStringToObject(card));
+}
 
-	for (const card of lines) {
-		let [ID, cardInfo] = card.split(':');
-		ID = Number(ID.split(' ').slice(-1)[0]);
-		let [myNumbers, winningNumbers] = cardInfo.split('|');
-		myNumbers = myNumbers
-			.trim()
-			.split(' ')
-			.filter((n) => n !== '')
-			.map((n) => Number(n));
-		winningNumbers = new Set(
-			winningNumbers
-				.trim()
-				.split(' ')
-				.filter((n) => n !== '')
-				.map((n) => Number(n))
-		);
-		cards.push({
-			id: ID,
-			numbers: myNumbers,
-			winningNumbers: winningNumbers
-		});
+function sum(array, start = 0) {
+	return array.reduce((partialSum, a) => partialSum + a, start);
+}
+
+function calculateNumberOfMatches(preprocessedData) {
+	return preprocessedData.map((card) =>
+		sum(card.numbers.map((number) => card.winningNumbers.has(number)))
+	);
+}
+
+function matchesToPointsPart1(matches) {
+	return matches === 0 ? 0 : 2 ** (matches - 1);
+}
+
+function pointValuePart1(numberOfMatches) {
+	return sum(numberOfMatches.map((matches) => matchesToPointsPart1(matches)));
+}
+
+function pointValuePart2(numberOfMatches) {
+	// Cycle backwards over the numberOfMatches array, summing the point score of all
+	// cards that that card also profits from, plus the value of the card itself (1). 
+	// These cards are always below the current card, so going backwards means we can 
+	// use the already-calculated card scores to calculate the current one. It's a bit 
+	// like a backwards graph search!
+	const cardScores = [];
+	for (const numMatches of numberOfMatches.toReversed()) {
+		cardScores.unshift(sum(cardScores.slice(0, numMatches)) + 1);
 	}
-	return cards;
+	return sum(cardScores);
 }
 
 /**
@@ -41,22 +72,8 @@ export function preprocessData(data) {
  * @returns {any} result of part 1
  */
 export function part1(preprocessedData) {
-	const numberOfMatches = preprocessedData.map((card) =>
-		card.numbers
-			.map((number) => card.winningNumbers.has(number))
-			.reduce((partialSum, a) => partialSum + a, 0)
-	);
-	const pointValue = numberOfMatches.map((matches) => (matches === 0 ? 0 : 2 ** (matches - 1)));
-	return pointValue.reduce((partialSum, a) => partialSum + a, 0);
-}
-
-function range(size, startAt = 0) {
-	return [...Array(size).keys()].map((i) => i + startAt);
-}
-
-function getNewCards(index, numberOfMatches) {
-	const cardsToAdd = numberOfMatches[index];
-	return range(cardsToAdd, index + 1).filter((x) => x < numberOfMatches.length);
+	const numberOfMatches = calculateNumberOfMatches(preprocessedData);
+	return pointValuePart1(numberOfMatches);
 }
 
 /**
@@ -65,24 +82,6 @@ function getNewCards(index, numberOfMatches) {
  * @returns {any} result of part 2!
  */
 export function part2(preprocessedData) {
-	const numberOfMatches = preprocessedData.map((card) =>
-		card.numbers
-			.map((number) => card.winningNumbers.has(number))
-			.reduce((partialSum, a) => partialSum + a, 0)
-	);
-	let totalCards = numberOfMatches.length;
-	let cardsToProcess = [];
-
-	// Initialise by making all the cards our initial set gets us
-	for (let i = 0; i < numberOfMatches.length; i++) {
-		cardsToProcess.push(...getNewCards(i, numberOfMatches));
-	}
-
-	// Keep processing cards until we don't have any more!
-	while (cardsToProcess.length > 0) {
-		cardsToProcess.push(...getNewCards(cardsToProcess.shift(), numberOfMatches));
-		totalCards += 1;
-	}
-
-	return totalCards;
+	const numberOfMatches = calculateNumberOfMatches(preprocessedData);
+	return pointValuePart2(numberOfMatches);
 }

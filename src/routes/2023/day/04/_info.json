@@ -2,10 +2,10 @@
     "title": "Scratchcards",
     "day": "04",
     "year": "2023",
-    "description": "To get to the water island, we need to help an elf who has (a shelf of) many scratchcards. (The plot thickens!)\nHow much did the elf win?",
-    "longRuntime": true,
+    "description": "To get to the water island, we need to help an elf who has (a shelf of) many scratchcards. (The plot thickens!) How much did the elf win?\nI really like my solution today - the code is very functional and straightforward. Also, it's fast!",
+    "longRuntime": false,
     "result1": "Points",
     "result2": "Total Scratchcards",
-    "keywords": ["TODO: OPTIMISE"],
+    "keywords": ["functional", "object", "set", "array"],
     "visible": true
 }
