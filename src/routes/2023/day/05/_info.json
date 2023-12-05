@@ -1,11 +1,11 @@
 {
-    "title": "Puzzle Title",
+    "title": "If You Give A Seed A Fertilizer",
     "day": "05",
     "year": "2023",
-    "description": "Description",
+    "description": "The Elves are at it again! They've put important information behind a text file formatted in a really weird way! ... this time, we need to go through everything to find which seeds to plant with which soil, fertilizer, water... etc!",
     "longRuntime": false,
-    "result1": "Result",
-    "result2": "Result",
-    "keywords": [""],
+    "result1": "Lowest location number",
+    "result2": "Lowest location number",
+    "keywords": ["ranges", "search", "arrays", "objects"],
     "visible": true
 }
