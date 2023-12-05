@@ -76,14 +76,13 @@ function applyRangeToRange(lower, upper, map, rangeID) {
 function applyMapToSeedRanges(seedRanges, map) {
     const mappedSeedRanges = []
     const minimumRangeStart = Math.min(...map.map((range) => range.start))
-    console.log(minimumRangeStart)
     let i = 0;
     while (seedRanges.length > 0) {
         const seedRange = seedRanges.shift()
         const lowerRange = getRange(seedRange[0], map)
         const upperRange = getRange(seedRange[1], map)
 
-        console.log(lowerRange, upperRange)
+        // console.log(lowerRange, upperRange)
 
         if (lowerRange === upperRange) {
             mappedSeedRanges.push(applyRangeToRange(seedRange[0], seedRange[1], map, lowerRange))
@@ -95,6 +94,7 @@ function applyMapToSeedRanges(seedRanges, map) {
                 mappedSeedRanges.push(applyRangeToRange(seedRange[0], map[lowerRange].end - 1, map, lowerRange))
                 seedRanges.push([map[lowerRange].end, seedRange[1]])
             }
+            // console.log(seedRange, seedRanges.slice(-1))
         }
         if (i > 1000) {
             throw "broken"
@@ -113,7 +113,7 @@ function applyMapToSeedRanges(seedRanges, map) {
 export function part2 (preprocessedData) {
     let seedRanges = []
     for (let i = 0; i < preprocessedData.seeds.length; i += 2) {
-        seedRanges.push([preprocessedData.seeds[0], preprocessedData.seeds[1]])
+        seedRanges.push([preprocessedData.seeds[0], preprocessedData.seeds[0] + preprocessedData.seeds[1] - 1])
     }
 
     for (const map of preprocessedData.maps) {
