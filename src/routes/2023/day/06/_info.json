@@ -1,11 +1,11 @@
 {
-    "title": "Puzzle Title",
+    "title": "Wait For It",
     "day": "06",
     "year": "2023",
-    "description": "Description",
+    "description": "We need to win a boat race so we can get to the desert island! But what's the best strategy to win?\nThis puzzle was a fun one to optimise. Math makes it go fast!",
     "longRuntime": false,
-    "result1": "Result",
-    "result2": "Result",
-    "keywords": [""],
+    "result1": "Product of ways to win",
+    "result2": "Ways to win",
+    "keywords": ["array", "search", "root finding"],
     "visible": true
 }
