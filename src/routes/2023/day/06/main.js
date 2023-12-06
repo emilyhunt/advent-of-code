@@ -7,8 +7,31 @@
  * @returns {any} data, preprocessed into something useful!
  */
 export function preprocessData (data) {
-    return data;
+    const split = data.split("\n");
+    let [times, distances] = [split[0], split[1]];
+    times = times.slice(5).split(" ").filter((s) => s !== "");
+    distances = distances.slice(9).split(" ").filter((s) => s !== "");
+    return times.map((t, i) => ({time: t, distanceRecord: distances[i]}));
 };
+
+
+function distanceMoved(waitTime, totalTime) {
+    // d = <speed> * (totalTime - waitTime)
+    // <speed> = waitTime
+    // hence...
+    return waitTime * (totalTime - waitTime)
+}
+
+function countRaceWinPossibilities(race) {
+    let wins = 0;
+    for (let i = 0; i < race.time; i++) {
+        if (distanceMoved(i, race.time) > race.distanceRecord) {
+            wins += 1
+        }
+    }
+    return wins;
+}
+
 
 /**
  * Takes preprocessed data as an argument and returns answer for part 1.
@@ -16,7 +39,7 @@ export function preprocessData (data) {
  * @returns {any} result of part 1
  */
 export function part1 (preprocessedData) {
-    return 0;
+    return preprocessedData.map((race) => countRaceWinPossibilities(race)).reduce((partialProduct, a) => partialProduct * a, 1);
 };
 
 /**
