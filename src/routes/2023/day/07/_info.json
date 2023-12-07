@@ -1,11 +1,11 @@
 {
-    "title": "Puzzle Title",
+    "title": "Camel Cards",
     "day": "07",
     "year": "2023",
-    "description": "Description",
+    "description": "We have a long camel ride ahead of us - but thankfully, the Elves have a poker variant (Camel Cards) for us to play!",
     "longRuntime": false,
-    "result1": "Result",
-    "result2": "Result",
-    "keywords": [""],
-    "visible": false
+    "result1": "Total winnings",
+    "result2": "Total winnings (with jokers)",
+    "keywords": ["logic", "functional", "object-oriented"],
+    "visible": true
 }
