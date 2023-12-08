@@ -7,7 +7,15 @@
  * @returns {any} data, preprocessed into something useful!
  */
 export function preprocessData (data) {
-    return data;
+    const split = data.trim().split("\n\n");
+    const mapping = {"L": 0, "R": 1};
+    const allDirections = split[0].split("").map((c) => mapping[c]);
+    let allNodes = split[1].replaceAll("(", "").replaceAll(")", "").split("\n").map((row) => row.split(" = "));
+    const allNodesObject = {};
+    for (const row of allNodes) {
+        allNodesObject[row[0]] = row[1].split(", ")
+    }
+    return {directions: allDirections, nodes: allNodesObject}
 };
 
 /**
@@ -16,7 +24,14 @@ export function preprocessData (data) {
  * @returns {any} result of part 1
  */
 export function part1 (preprocessedData) {
-    return 0;
+    const totalDirections = preprocessedData.directions.length;
+    let steps = 0;
+    let node = "AAA";
+    do {
+        node = preprocessedData.nodes[node][preprocessedData.directions[steps % totalDirections]];
+        steps++;
+    } while (node !== "ZZZ")
+    return steps;
 };
 
 /**
@@ -25,5 +40,13 @@ export function part1 (preprocessedData) {
  * @returns {any} result of part 2!
  */
 export function part2 (preprocessedData) {
-    return 0;
+    let nodes = Object.keys(preprocessedData.nodes).filter(key => key.endsWith("A"));
+    const totalDirections = preprocessedData.directions.length;
+    console.log(nodes)
+    let steps = 0;
+    do {
+        nodes = nodes.map(node => preprocessedData.nodes[node][preprocessedData.directions[steps % totalDirections]]);
+        steps++;
+    } while (!nodes.every(node => node.endsWith("Z")))
+    return steps;
 };
