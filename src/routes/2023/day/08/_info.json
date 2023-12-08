@@ -1,11 +1,11 @@
 {
-    "title": "Puzzle Title",
+    "title": "Haunted Wasteland",
     "day": "08",
     "year": "2023",
-    "description": "Description",
+    "description": "I hate the trick to solve this one =( I spent SO LONG doing this the hard way...",
     "longRuntime": false,
-    "result1": "Result",
-    "result2": "Result",
-    "keywords": [""],
+    "result1": "Steps",
+    "result2": "Steps (solved in a gross way)",
+    "keywords": ["array", "factorization", "prime numbers", "least favourite puzzle award contender 2023"],
     "visible": true
 }
